@@ -23,26 +23,3 @@
 .dark::view-transition-new(root) {
   z-index: 1;
 }
-
-@screen xs {
-  .headerCom {
-    --uno: bg-amber;
-  }
-}
-
-@screen sm {
-  .headerCom {
-    --uno: bg-blue;
-  }
-}
-@screen md {
-  .headerCom {
-    --uno: bg-red;
-  }
-}
-
-@screen lg {
-  .headerCom {
-    --uno: bg-warmgray;
-  }
-}

@@ -6,23 +6,8 @@ import {
   presetTypography,
 } from "unocss";
 
-import transformerDirectives from "@unocss/transformer-directives";
-
 export default defineConfig({
   rules: [],
-  theme: {
-    breakpoints: {
-      xs: "375px",
-      sm: "768px",
-      md: "992px",
-      lg: "1200px",
-    },
-  },
-  transformers: [
-    transformerDirectives({
-      applyVariable: ["--at-apply", "--uno-apply", "--uno"],
-    }),
-  ],
   presets: [
     presetUno(),
     presetAttributify(),

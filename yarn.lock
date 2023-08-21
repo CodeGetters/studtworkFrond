@@ -1226,14 +1226,6 @@
     "@unocss/core" "0.55.2"
     css-tree "^2.3.1"
 
-"@unocss/transformer-directives@^0.55.2":
-  version "0.55.2"
-  resolved "https://registry.npmmirror.com/@unocss/transformer-directives/-/transformer-directives-0.55.2.tgz#44263af9a024ec040444836c5e3ff9860d8ae2f7"
-  integrity sha512-IJKL5clOiv2RjvHYr4xumS4eFScPsi3Vg4vGugsmn43PZ1FsApp8UElHfhuhBsEEiffnsgTD+N5u/EiPpyI0Gw==
-  dependencies:
-    "@unocss/core" "0.55.2"
-    css-tree "^2.3.1"
-
 "@unocss/transformer-variant-group@0.55.2":
   version "0.55.2"
   resolved "https://registry.npmjs.org/@unocss/transformer-variant-group/-/transformer-variant-group-0.55.2.tgz#8d2189add12b23950e835d526a26c6fea0559ff8"
