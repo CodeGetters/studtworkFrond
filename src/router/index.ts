@@ -11,11 +11,17 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     component: Home,
+    meta: {
+      pageTitle: "Home",
+    },
   },
   {
     // path: "/:pathMatch(.*)*",
     path: "/404",
     component: NotFound,
+    meta: {
+      pageTitle: "NotFound",
+    },
   },
 ];
 
@@ -26,8 +32,9 @@ const option: RouterOptions = {
 
 const router: Router = createRouter(option);
 
-router.beforeEach(() => {
+router.beforeEach((to) => {
   start();
+  document.title = `${to.meta.pageTitle} - ${import.meta.env.VITE_APP_NAME}`;
 });
 
 router.afterEach(() => {

@@ -8,4 +8,7 @@
   </router-view>
 </template>
 
-<style scoped></style>
+<style lang="scss">
+@import "normalize.css";
+@import "@/assets/styles/normal.css";
+</style>
