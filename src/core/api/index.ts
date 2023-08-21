@@ -1,6 +1,6 @@
 import axios from "axios";
 import type { AxiosInstance } from "axios";
-import { start, done } from "@/utils/nprogress";
+import { start, done } from "@/core/utils/nprogress";
 
 const service: AxiosInstance = axios.create({
   headers: {

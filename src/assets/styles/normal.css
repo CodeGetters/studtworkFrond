@@ -4,3 +4,45 @@
   font-family: "CascadiaCode";
   src: url("../fonts/CascadiaCode.ttf");
 }
+
+/* toggle theme */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 9999;
+}
+.dark::view-transition-old(root) {
+  z-index: 9999;
+}
+.dark::view-transition-new(root) {
+  z-index: 1;
+}
+
+@screen xs {
+  .headerCom {
+    --uno: bg-amber;
+  }
+}
+
+@screen sm {
+  .headerCom {
+    --uno: bg-blue;
+  }
+}
+@screen md {
+  .headerCom {
+    --uno: bg-red;
+  }
+}
+
+@screen lg {
+  .headerCom {
+    --uno: bg-warmgray;
+  }
+}

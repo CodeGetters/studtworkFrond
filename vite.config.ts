@@ -7,7 +7,6 @@ import devTools from "vite-plugin-vue-devtools";
 import autoImport from "unplugin-auto-import/vite";
 import viteCompression from "vite-plugin-compression";
 
-// https://vitejs.dev/config/
 export default ({ mode }) => {
   const VITE_BASE_URL = loadEnv(mode, process.cwd()).VITE_BASE_URL;
 

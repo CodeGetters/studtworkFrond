@@ -955,6 +955,11 @@
   resolved "https://registry.npmjs.org/@types/nprogress/-/nprogress-0.2.0.tgz#86c593682d4199212a0509cc3c4d562bbbd6e45f"
   integrity sha512-1cYJrqq9GezNFPsWTZpFut/d4CjpZqA0vhqDUPFWYKF1oIyBz5qnoYMzR+0C/T96t3ebLAC1SSnwrVOm5/j74A==
 
+"@types/object-path@^0.11.1":
+  version "0.11.1"
+  resolved "https://registry.npmmirror.com/@types/object-path/-/object-path-0.11.1.tgz#eea5b357518597fc9c0a067ea3147f599fc1514f"
+  integrity sha512-219LSCO9HPcoXcRTC6DbCs0FRhZgBnEMzf16RRqkT40WbkKx3mOeQuz3e2XqbfhOz/AHfbru0kzB1n1RCAsIIg==
+
 "@types/semver@^7.5.0":
   version "7.5.0"
   resolved "https://registry.npmmirror.com/@types/semver/-/semver-7.5.0.tgz#591c1ce3a702c45ee15f47a42ade72c2fd78978a"
@@ -1216,6 +1221,14 @@
 "@unocss/transformer-directives@0.55.2":
   version "0.55.2"
   resolved "https://registry.npmjs.org/@unocss/transformer-directives/-/transformer-directives-0.55.2.tgz#44263af9a024ec040444836c5e3ff9860d8ae2f7"
+  integrity sha512-IJKL5clOiv2RjvHYr4xumS4eFScPsi3Vg4vGugsmn43PZ1FsApp8UElHfhuhBsEEiffnsgTD+N5u/EiPpyI0Gw==
+  dependencies:
+    "@unocss/core" "0.55.2"
+    css-tree "^2.3.1"
+
+"@unocss/transformer-directives@^0.55.2":
+  version "0.55.2"
+  resolved "https://registry.npmmirror.com/@unocss/transformer-directives/-/transformer-directives-0.55.2.tgz#44263af9a024ec040444836c5e3ff9860d8ae2f7"
   integrity sha512-IJKL5clOiv2RjvHYr4xumS4eFScPsi3Vg4vGugsmn43PZ1FsApp8UElHfhuhBsEEiffnsgTD+N5u/EiPpyI0Gw==
   dependencies:
     "@unocss/core" "0.55.2"
@@ -3187,6 +3200,11 @@ nth-check@^2.1.1:
   integrity sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==
   dependencies:
     boolbase "^1.0.0"
+
+object-path@^0.11.8:
+  version "0.11.8"
+  resolved "https://registry.npmmirror.com/object-path/-/object-path-0.11.8.tgz#ed002c02bbdd0070b78a27455e8ae01fc14d4742"
+  integrity sha512-YJjNZrlXJFM42wTBn6zgOJVar9KFJvzx6sTWDte8sWZF//cnjl0BxHNpfZx+ZffXX63A9q0b1zsFiBX4g4X5KA==
 
 ofetch@^1.1.1:
   version "1.1.1"

@@ -1,5 +1,5 @@
 import { createWebHistory, createRouter } from "vue-router";
-import { start, done } from "@/utils/nprogress";
+import { start, done } from "@/core/utils/nprogress";
 
 import type { RouteRecordRaw, RouterOptions, Router } from "vue-router";
 
