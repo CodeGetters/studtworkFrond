@@ -20,5 +20,13 @@ const toggleDark = useToggle(isDark);
     <span class="bg-red" @click="changeLang()">{{ t("hello") }}</span>
     <router-link to="/404">notFound</router-link>
     <span @click="toggleDark()">主题切换</span>
+    <span text-red>预设</span>
+    <span bg="blue-400 hover:blue-500">预设</span>
   </div>
 </template>
+
+<style>
+.home {
+  font-family: "CascadiaCode";
+}
+</style>
