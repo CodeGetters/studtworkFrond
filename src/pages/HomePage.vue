@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from "vue-i18n";
 const { locale, t } = useI18n();
+import { useDark, useToggle } from "@vueuse/core";
 
 /**
  * @description 语言切换
@@ -8,12 +9,16 @@ const { locale, t } = useI18n();
 const changeLang = () => {
   locale.value === "zh" ? (locale.value = "en") : (locale.value = "zh");
 };
+
+const isDark = useDark();
+const toggleDark = useToggle(isDark);
 </script>
 
 <template>
-  <div class="home">
-    <span>home</span>
-    <span @click="changeLang()">{{ t("hello") }}</span>
+  <div class="home .dark:bg-black .dark:text-#fff">
+    <span class="text-red">home</span>
+    <span class="bg-red" @click="changeLang()">{{ t("hello") }}</span>
     <router-link to="/404">notFound</router-link>
+    <span @click="toggleDark()">主题切换</span>
   </div>
 </template>

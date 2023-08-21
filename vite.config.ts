@@ -1,6 +1,7 @@
 import { defineConfig, loadEnv } from "vite";
 import { resolve } from "node:path";
 import vue from "@vitejs/plugin-vue";
+import UnoCSS from "unocss/vite";
 import tsChecker from "vite-plugin-checker";
 import devTools from "vite-plugin-vue-devtools";
 import autoImport from "unplugin-auto-import/vite";
@@ -17,6 +18,24 @@ export default ({ mode }) => {
         "@": resolve(__dirname, "src"),
       },
     },
+    build: {
+      rollupOptions: {
+        output: {
+          entryFileNames: "assets/js/[name].js",
+          chunkFileNames: "assets/js/[name]-[hash].js",
+          assetFileNames: "assets/[ext]/[name]-[hash]-.[ext]",
+          manualChunks(id) {
+            if (id.includes("node_modules")) {
+              return id
+                .toString()
+                .split("node_modules/")[1]
+                .split("/")[0]
+                .toString();
+            }
+          },
+        },
+      },
+    },
     server: {
       proxy: {
         "/api/": {
@@ -28,12 +47,13 @@ export default ({ mode }) => {
     },
     plugins: [
       vue(),
+      UnoCSS(),
       autoImport({
         imports: [
-          "vue",
           "pinia",
           "vue-i18n",
           "vue-router",
+          "@vueuse/core",
           "@vue/composition-api",
         ],
       }),
