@@ -3,6 +3,8 @@ import { resolve } from "node:path";
 import vue from "@vitejs/plugin-vue";
 import tsChecker from "vite-plugin-checker";
 import devTools from "vite-plugin-vue-devtools";
+import autoImport from "unplugin-auto-import/vite";
+import viteCompression from "vite-plugin-compression";
 
 // https://vitejs.dev/config/
 export default ({ mode }) => {
@@ -26,10 +28,20 @@ export default ({ mode }) => {
     },
     plugins: [
       vue(),
+      autoImport({
+        imports: [
+          "vue",
+          "pinia",
+          "vue-i18n",
+          "vue-router",
+          "@vue/composition-api",
+        ],
+      }),
       devTools(),
       tsChecker({
         typescript: true,
       }),
+      viteCompression(),
     ],
   });
 };
