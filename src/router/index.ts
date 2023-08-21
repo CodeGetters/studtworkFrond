@@ -5,10 +5,17 @@ import type { RouteRecordRaw, RouterOptions, Router } from "vue-Router";
 
 import Home from "@/pages/HomePage.vue";
 
+const NotFound = () => import("@/pages/NotFound.vue");
+
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     component: Home,
+  },
+  {
+    // path: "/:pathMatch(.*)*",
+    path: "/404",
+    component: NotFound,
   },
 ];
 
