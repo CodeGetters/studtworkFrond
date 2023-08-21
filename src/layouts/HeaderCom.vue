@@ -1,9 +1,9 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="headerCom w100% h70px"></div>
+  <div class="headerCom w100% h70px">1111</div>
 </template>
 
-<style scoped>
-@import url("../assets/styles/headers.css");
+<style scoped lang="scss">
+@import url("../assets/styles/headers.scss");
 </style>

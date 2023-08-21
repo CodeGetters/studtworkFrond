@@ -1,22 +1,28 @@
+$sysColor: red;
+
 @screen xs {
   .headerCom {
     --uno: bg-amber;
+    color: $sysColor;
   }
 }
 
 @screen sm {
   .headerCom {
     --uno: bg-blue;
+    color: $sysColor;
   }
 }
 @screen md {
   .headerCom {
     --uno: bg-red;
+    color: $sysColor;
   }
 }
 
 @screen lg {
   .headerCom {
     --uno: bg-warmgray;
+    color: $sysColor;
   }
 }
