@@ -66,8 +66,6 @@ declare global {
   const onKeyStroke: (typeof import("@vueuse/core"))["onKeyStroke"];
   const onLongPress: (typeof import("@vueuse/core"))["onLongPress"];
   const onMounted: (typeof import("@vue/composition-api"))["onMounted"];
-  const onRenderTracked: (typeof import("vue"))["onRenderTracked"];
-  const onRenderTriggered: (typeof import("vue"))["onRenderTriggered"];
   const onScopeDispose: (typeof import("@vue/composition-api"))["onScopeDispose"];
   const onServerPrefetch: (typeof import("@vue/composition-api"))["onServerPrefetch"];
   const onStartTyping: (typeof import("@vueuse/core"))["onStartTyping"];
@@ -88,7 +86,6 @@ declare global {
   const refDefault: (typeof import("@vueuse/core"))["refDefault"];
   const refThrottled: (typeof import("@vueuse/core"))["refThrottled"];
   const refWithControl: (typeof import("@vueuse/core"))["refWithControl"];
-  const resolveComponent: (typeof import("vue"))["resolveComponent"];
   const resolveRef: (typeof import("@vueuse/core"))["resolveRef"];
   const resolveUnref: (typeof import("@vueuse/core"))["resolveUnref"];
   const setActivePinia: (typeof import("pinia"))["setActivePinia"];
@@ -147,7 +144,6 @@ declare global {
   const useCounter: (typeof import("@vueuse/core"))["useCounter"];
   const useCssModule: (typeof import("@vue/composition-api"))["useCssModule"];
   const useCssVar: (typeof import("@vueuse/core"))["useCssVar"];
-  const useCssVars: (typeof import("vue"))["useCssVars"];
   const useCurrentElement: (typeof import("@vueuse/core"))["useCurrentElement"];
   const useCycleList: (typeof import("@vueuse/core"))["useCycleList"];
   const useDark: (typeof import("@vueuse/core"))["useDark"];
