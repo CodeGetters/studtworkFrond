@@ -7,9 +7,6 @@ export {}
 
 declare module "vue" {
   export interface GlobalComponents {
-    ElAside: (typeof import("element-plus/es"))["ElAside"];
-    ElContainer: (typeof import("element-plus/es"))["ElContainer"];
-    ElMain: (typeof import("element-plus/es"))["ElMain"];
     RouterLink: (typeof import("vue-router"))["RouterLink"];
     RouterView: (typeof import("vue-router"))["RouterView"];
   }
