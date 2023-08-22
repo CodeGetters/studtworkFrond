@@ -29,6 +29,7 @@
   "dependencies": {
     "@vueuse/core": "^10.3.0",
     "axios": "^1.4.0",
+    "element-plus": "^2.3.9",
     "normalize.css": "^8.0.1",
     "nprogress": "^0.2.0",
     "object-path": "^0.11.8",
@@ -62,6 +63,7 @@
     "typescript": "^5.0.2",
     "unocss": "^0.55.2",
     "unplugin-auto-import": "^0.16.6",
+    "unplugin-vue-components": "^0.25.1",
     "vite": "^4.4.5",
     "vite-plugin-checker": "^0.6.1",
     "vite-plugin-compression": "^0.5.1",

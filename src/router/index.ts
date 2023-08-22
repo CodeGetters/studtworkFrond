@@ -4,6 +4,7 @@ import { start, done } from "@/core/utils/nprogress";
 import type { RouteRecordRaw, RouterOptions, Router } from "vue-router";
 
 import Home from "@/pages/HomePage.vue";
+import LoginPage from "@/pages/LoginPage.vue";
 
 const NotFound = () => import("@/pages/NotFound.vue");
 
@@ -13,6 +14,13 @@ const routes: Array<RouteRecordRaw> = [
     component: Home,
     meta: {
       pageTitle: "Home",
+    },
+  },
+  {
+    path: "/signup",
+    component: LoginPage,
+    meta: {
+      pageTitle: "Sign Up",
     },
   },
   {

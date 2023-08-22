@@ -1,3 +1,5 @@
+/// <reference types="vitest" />
+
 import { defineConfig, loadEnv } from "vite";
 import { resolve } from "node:path";
 import vue from "@vitejs/plugin-vue";
@@ -6,6 +8,8 @@ import tsChecker from "vite-plugin-checker";
 import devTools from "vite-plugin-vue-devtools";
 import autoImport from "unplugin-auto-import/vite";
 import viteCompression from "vite-plugin-compression";
+import Components from "unplugin-vue-components/vite";
+import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 
 export default ({ mode }) => {
   const VITE_BASE_URL = loadEnv(mode, process.cwd()).VITE_BASE_URL;
@@ -15,7 +19,12 @@ export default ({ mode }) => {
     resolve: {
       alias: {
         "@": resolve(__dirname, "src"),
+        "vue-i18n": "vue-i18n/dist/vue-i18n.cjs.prod.js", //解决i8n警告
       },
+    },
+    test: {
+      include: ["src/test/*.test.ts"],
+      globals: true,
     },
     build: {
       rollupOptions: {
@@ -47,6 +56,14 @@ export default ({ mode }) => {
     plugins: [
       vue(),
       UnoCSS(),
+      devTools(),
+      viteCompression(),
+      tsChecker({
+        typescript: true,
+      }),
+      Components({
+        resolvers: [ElementPlusResolver()],
+      }),
       autoImport({
         imports: [
           "pinia",
@@ -55,12 +72,8 @@ export default ({ mode }) => {
           "@vueuse/core",
           "@vue/composition-api",
         ],
+        resolvers: [ElementPlusResolver()],
       }),
-      devTools(),
-      tsChecker({
-        typescript: true,
-      }),
-      viteCompression(),
     ],
   });
 };
