@@ -8,11 +8,15 @@ export {}
 declare module "vue" {
   export interface GlobalComponents {
     ElAside: (typeof import("element-plus/es"))["ElAside"];
+    ElButton: (typeof import("element-plus/es"))["ElButton"];
     ElCol: (typeof import("element-plus/es"))["ElCol"];
     ElContainer: (typeof import("element-plus/es"))["ElContainer"];
     ElFooter: (typeof import("element-plus/es"))["ElFooter"];
+    ElForm: (typeof import("element-plus/es"))["ElForm"];
+    ElFormItem: (typeof import("element-plus/es"))["ElFormItem"];
     ElHeader: (typeof import("element-plus/es"))["ElHeader"];
     ElIcon: (typeof import("element-plus/es"))["ElIcon"];
+    ElInput: (typeof import("element-plus/es"))["ElInput"];
     ElMain: (typeof import("element-plus/es"))["ElMain"];
     ElMenu: (typeof import("element-plus/es"))["ElMenu"];
     ElMenuItem: (typeof import("element-plus/es"))["ElMenuItem"];
@@ -22,11 +26,10 @@ declare module "vue" {
     ElRow: (typeof import("element-plus/es"))["ElRow"];
     ElSubMenu: (typeof import("element-plus/es"))["ElSubMenu"];
     ElSwitch: (typeof import("element-plus/es"))["ElSwitch"];
-    ElButton: (typeof import("element-plus/es"))["ElButton"];
-    ElForm: (typeof import("element-plus/es"))["ElForm"];
-    ElFormItem: (typeof import("element-plus/es"))["ElFormItem"];
-    ElInput: (typeof import("element-plus/es"))["ElInput"];
     RouterLink: (typeof import("vue-router"))["RouterLink"];
     RouterView: (typeof import("vue-router"))["RouterView"];
+  }
+  export interface ComponentCustomProperties {
+    vLoading: (typeof import("element-plus/es"))["ElLoadingDirective"];
   }
 }

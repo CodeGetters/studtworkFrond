@@ -2,6 +2,7 @@
 import { reactive, ref } from "vue";
 import type { FormInstance, FormRules } from "element-plus";
 const ruleFormRef = ref<FormInstance>();
+import logo from "/favicon.svg";
 
 const validatePass = (rule, value, callback) => {
   if (value === "") {
@@ -58,7 +59,7 @@ const rules = reactive<FormRules<typeof ruleForm>>({
         <div class="logo">
           <div class="logo-top">
             <div class="logo-image">
-              <!-- <img src="src\assets\images\logo.png" /> -->
+              <img :src="logo" />
             </div>
             <div class="logo1">StudTWork</div>
           </div>

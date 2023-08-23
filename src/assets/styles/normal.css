@@ -5,6 +5,10 @@
   src: url("../fonts/CascadiaCode.ttf");
 }
 
+:root {
+  font-family: "CascadiaCode";
+}
+
 /* toggle theme */
 ::view-transition-old(root),
 ::view-transition-new(root) {
