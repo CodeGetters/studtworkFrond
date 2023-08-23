@@ -22,6 +22,10 @@ declare module "vue" {
     ElRow: (typeof import("element-plus/es"))["ElRow"];
     ElSubMenu: (typeof import("element-plus/es"))["ElSubMenu"];
     ElSwitch: (typeof import("element-plus/es"))["ElSwitch"];
+    ElButton: (typeof import("element-plus/es"))["ElButton"];
+    ElForm: (typeof import("element-plus/es"))["ElForm"];
+    ElFormItem: (typeof import("element-plus/es"))["ElFormItem"];
+    ElInput: (typeof import("element-plus/es"))["ElInput"];
     RouterLink: (typeof import("vue-router"))["RouterLink"];
     RouterView: (typeof import("vue-router"))["RouterView"];
   }
