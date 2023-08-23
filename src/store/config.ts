@@ -17,7 +17,7 @@ export const useConfigStore = defineStore("config", () => {
   }
 
   // 修改默认布局配置
-  function setDefaultConfigProperty(property: string, value: any) {
+  function setDefaultConfigProperty(property: string, value) {
     objectPath.set(config.value, property, value);
     localStorage.setItem(CONFIG_NAME_KEY, JSON.stringify(config.value));
   }

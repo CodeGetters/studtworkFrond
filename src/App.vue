@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import "element-plus/theme-chalk/display.css";
+</script>
 
 <template>
   <router-view v-slot="{ Component }">
