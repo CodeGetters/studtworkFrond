@@ -58,7 +58,7 @@ const resetForm = (formEl: FormInstance | undefined) => {
         <div class="logo">
           <div class="logo-top">
             <div class="logo-image">
-              <img src="src\img\Group 1000001470 2.png" />
+              <img src="src\assets\images\logo.png" />
             </div>
             <div class="logo1">StudTWork</div>
           </div>
@@ -134,6 +134,7 @@ const resetForm = (formEl: FormInstance | undefined) => {
   display: flex;
   align-items: center;
 }
+
 .loginPage {
   height: 100vh;
   display: flex;
@@ -152,6 +153,7 @@ const resetForm = (formEl: FormInstance | undefined) => {
     width: 113px;
     height: 113px;
   }
+
   .logo-container {
     font-size: 20px;
     word-spacing: 10px;
