@@ -58,7 +58,7 @@ const resetForm = (formEl: FormInstance | undefined) => {
         <div class="logo">
           <div class="logo-top">
             <div class="logo-image">
-              <img src="src\assets\images\logo.png" />
+              <!-- <img src="src\assets\images\logo.png" /> -->
             </div>
             <div class="logo1">StudTWork</div>
           </div>
