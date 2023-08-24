@@ -5,6 +5,20 @@
   src: url("../fonts/CascadiaCode.ttf");
 }
 
+@font-face {
+  font-family: "LXGWWenKai-Light";
+  src: url("../fonts/LXGWWenKai-Light.ttf");
+}
+
+@font-face {
+  font-family: "LXGWWenKai-Bold";
+  src: url("../fonts/LXGWWenKai-Bold.ttf");
+}
+
+:root {
+  font-family: "CascadiaCode", "LXGWWenKai-Light";
+}
+
 /* toggle theme */
 ::view-transition-old(root),
 ::view-transition-new(root) {
@@ -22,4 +36,23 @@
 }
 .dark::view-transition-new(root) {
   z-index: 1;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
+button {
+  outline: none;
+  border: none;
+}
+a {
+  color: inherit;
+  text-decoration: none;
 }

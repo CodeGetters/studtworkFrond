@@ -1,9 +1,20 @@
 <script lang="ts" setup>
+import logo from "/favicon.svg";
 import { reactive, ref } from "vue";
+import { toggleDark } from "@/core/utils/themeAnimation";
 import type { FormInstance, FormRules } from "element-plus";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
+const ruleForm = reactive({
+  username: "",
+  password: "",
+});
+
 const ruleFormRef = ref<FormInstance>();
 
-const validatePass = (rule, value, callback) => {
+const validateUser = (rule, value, callback) => {
   if (value === "") {
     callback(new Error("Please input the username"));
   } else {
@@ -14,128 +25,138 @@ const validatePass = (rule, value, callback) => {
     callback();
   }
 };
-const validatePass2 = (rule, value, callback) => {
+
+const validatePass = (rule, value, callback) => {
   if (value === "") {
     callback(new Error("Please input the password"));
-  } else if (value !== ruleForm.username) {
-    callback(new Error("Two inputs don't match!"));
   } else {
     callback();
   }
 };
-const ruleForm = reactive({
-  username: "",
-  password: "",
-});
 
 const rules = reactive<FormRules<typeof ruleForm>>({
-  username: [{ validator: validatePass, trigger: "blur" }],
-  password: [{ validator: validatePass2, trigger: "blur" }],
+  username: [{ validator: validateUser, trigger: "blur", required: true }],
+  password: [{ validator: validatePass, trigger: "blur", required: true }],
 });
 
-// const submitForm = (formEl: FormInstance | undefined) => {
-//   if (!formEl) return;
-//   formEl.validate((valid) => {
-//     if (valid) {
-//       console.log("submit!");
-//     } else {
-//       console.log("error submit!");
-//       return false;
-//     }
-//   });
-// };
-
-// const resetForm = (formEl: FormInstance | undefined) => {
-//   if (!formEl) return;
-//   formEl.resetFields();
-// };
+const submitAccount = (formEl: FormInstance | undefined) => {
+  if (!formEl) return;
+  formEl.validate((valid) => {
+    if (valid) {
+      console.log("submit!");
+      router.push({
+        path: "/",
+      });
+    } else {
+      console.log("error submit!");
+      return false;
+    }
+  });
+};
 </script>
 
 <template>
-  <div class="loginPage">
-    <div class="loginBox">
-      <div class="left">
-        <div class="logo">
-          <div class="logo-top">
-            <div class="logo-image">
-              <!-- <img src="src\assets\images\logo.png" /> -->
+  <div class="loginPage h100vh flex justify-center items-center">
+    <div class="w100% h67% flex flex-row overflow-hidden rounded-10px bg-#fff">
+      <!-- left::begin -->
+      <div class="left h100% w100% flex-1 bg-#f3fafd">
+        <!-- logoCon::begin -->
+        <div class="w52% h23% px-24% py-34% flex flex-col">
+          <!-- logo::begin -->
+          <div class="w100% h66% flex flex-row">
+            <div class="h100% w31% mr-2%">
+              <img :src="logo" alt="logo" class="w100% h100%" />
             </div>
-            <div class="logo1">StudTWork</div>
+            <span class="w67% h100% flex items-center text-38px italic"
+              >StudTWork</span
+            >
           </div>
-          <div class="logo-bottom">
-            <div class="logo2 logo-container">学生 用功 团队协作</div>
-          </div>
+          <!-- logo::end -->
+          <span class="h77% text-#368CD9 text-28px mt-3%"
+            >学生 用功 团队 协作</span
+          >
         </div>
+        <!-- logoCon::end -->
       </div>
+      <!-- left::end -->
 
-      <div class="right">
-        <h1 class="loginTitlte">登录</h1>
-        <el-form
-          ref="ruleFormRef"
-          :model="ruleForm"
-          status-icon
-          :rules="rules"
-          label-width="120px"
-          class="demo-ruleForm"
-          label-position="top"
-        >
-          <el-form-item label="账号" class="custom-label" prop="username">
-            <el-input
-              placeholder="请输入用户名/手机号/邮箱号"
-              v-model="ruleForm.username"
-              autocomplete="off"
-              class="custom-input"
+      <!-- right:begin -->
+      <div class="right flex-1 h100% flex-col items-center">
+        <!-- loginForm::begin -->
+        <div class="loginForm w74% h70% px13% py13% relative">
+          <div
+            text="35px center"
+            class="font-600"
+            @click="submitAccount(ruleFormRef)"
+          >
+            登录
+          </div>
+
+          <!-- form::begin -->
+          <el-form
+            ref="ruleFormRef"
+            :model="ruleForm"
+            status-icon
+            :rules="rules"
+            class="mt7%"
+            label-position="top"
+          >
+            <el-form-item label="账号" class="form-item" prop="username">
+              <el-input
+                placeholder="请输入用户名/手机号/邮箱号"
+                v-model="ruleForm.username"
+                autocomplete="off"
+                class="custom-input"
+              />
+            </el-form-item>
+            <el-form-item label="密码" class="form-item" prop="password">
+              <el-input
+                placeholder="请输入密码"
+                v-model="ruleForm.password"
+                type="password"
+                autocomplete="off"
+              />
+            </el-form-item>
+          </el-form>
+          <!-- form::end -->
+
+          <div class="w100% flex flex-row justify-between">
+            <span class="text-#A5AFBD">忘记密码</span>
+            <router-link to="/" class="text-#A5AFBD">
+              没有账号，<span text="#4E7AF6">去注册</span>
+            </router-link>
+          </div>
+
+          <button
+            type="submit"
+            ref="submitButton"
+            class="submitButton w100% mt-16px h40px rounded-50px cursor-pointer text-#fff"
+          >
+            <span> Continue </span>
+            <span style="display: none"> Please wait... </span>
+          </button>
+
+          <div class="config-btn">
+            <div i-iconoir:translate class="btn dark:text-black" />
+
+            <div
+              i-carbon-sun
+              dark:i-carbon-moon
+              class="btn ml-40px dark:text-black"
+              @click="toggleDark"
             />
-          </el-form-item>
-          <el-form-item label="密码" class="custom-label" prop="password">
-            <el-input
-              placeholder="请输入密码"
-              v-model="ruleForm.password"
-              type="password"
-              autocomplete="off"
-              :style="{ width: '530px', height: '50px' }"
-            />
-          </el-form-item>
-        </el-form>
-        <router-link
-          class="forgot"
-          to="/forgot-password"
-          :style="{ marginTop: '0' }"
-          >忘记密码</router-link
-        >
-        <el-button type="primary" :style="{ width: '530px', height: '50px' }">
-          登录
-        </el-button>
-        <div class="flex justify-center mt-24">
-          <div class="other1"></div>
-          <div class="other">其它方式登录</div>
-          <div class="other1"></div>
+          </div>
         </div>
-        <div class="flex justify-center mt-24">
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-        </div>
-        <router-link to="/register" class="register-link">
-          没有账号，<span class="blue-text">去注册</span>
-        </router-link>
+        <!-- loginFrom::end -->
       </div>
+      <!-- right::end -->
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-.logo-top {
-  display: flex;
-  align-items: center;
-}
-
 .loginPage {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 0% 13%;
   background: linear-gradient(
     45deg,
     #c1deff 4.69%,
@@ -143,164 +164,39 @@ const rules = reactive<FormRules<typeof ruleForm>>({
     #e5f8fb 87.13%
   );
 
-  //left
-  .logo-image {
-    margin-right: 8px;
-    width: 113px;
-    height: 113px;
+  .left {
+    box-shadow: 0px 0px 9px 3px #c5dcfa;
   }
 
-  .logo-container {
-    font-size: 20px;
-    word-spacing: 10px;
-  }
-
-  .logo2 {
-    color: #368cd9;
-    font-family: Inter;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-
-  .logo1 {
-    color: var(--logo, #031f47);
-    font-family: Poppins;
-    font-size: 40px;
-    font-style: italic;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: 2.8px;
-  }
-
-  .logo {
-    width: 364px;
-    height: 169px;
-
-    display: inline-flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 17px;
-  }
-
-  //right
-  .register-link {
-    text-decoration: none;
-  }
-
-  .blue-text {
-    color: blue;
-  }
-
-  .custom-label {
-    color: var(--2, #031f47);
-    font-family: Abyssinica SIL;
+  .form-item {
+    height: 44%;
     font-size: 24px;
     font-style: normal;
-    font-weight: 400;
-    line-height: 22px;
-    /* 91.667% */
   }
 
-  .custom-input {
-    width: 530px;
-    height: 50px;
-  }
-
-  .circle {
-    box-sizing: border-box;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background-color: #ffffff;
-    border: 2px solid #7b7b7b;
-    margin: 0 12px;
-  }
-
-  .flex {
-    align-items: center;
-    margin-top: 0px;
-    justify-content: center;
-  }
-
-  .forgot {
-    margin-top: 4px;
-    width: 531px;
-    color: var(--unnamed, #a5afbd);
-    text-align: right;
-    font-family: Abyssinica SIL;
+  :deep(.el-form-item__label) {
+    margin-bottom: 8px;
     font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 22px;
-    /* 137.5% */
-    text-decoration: none;
-    display: inline-block;
   }
 
-  .other1 {
-    margin-left: 14px;
-    margin-right: 14px;
-    width: 200px;
-    height: 3px;
-    background: var(--unnamed, #e1e4ea);
+  .submitButton {
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #38a7f8 24.58%, #5074f5 100%), #031f47;
+  }
+  .submitButton:hover {
+    background: linear-gradient(135deg, #6fbaef 24.58%, #748eed 100%), #031f47;
   }
 
-  .other {
-    color: var(--unnamed, #7c838d);
-    font-family: Abyssinica SIL;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 22px;
-    /* 137.5% */
-  }
+  .config-btn {
+    position: absolute;
+    margin-top: 10%;
+    margin-left: 65%;
 
-  .formWrapper {
-    margin-bottom: 24px;
-  }
-
-  .loginBox {
-    width: 1421px;
-    height: 80%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-
-    .left {
-      flex: 1;
-      display: flex;
-      height: 100%;
-      align-items: center;
-      justify-content: center;
-      // border: 1px solid #31383f;
-      border-right: none;
-      background: #f3fafd;
-      box-shadow: 0px 0px 9px 3px #c5dcfa;
-    }
-
-    .right {
-      flex: 1;
-      height: 100%;
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 24px;
-      background-color: #ffffff;
-    }
-
-    .loginTitlte {
-      margin-top: 40px;
-      margin-bottom: 0px;
-      line-height: 86px;
-      width: 122px;
-      height: 57px;
-      text-align: center;
-      font-family: Abhaya Libre SemiBold;
-      font-size: 48px;
-      font-style: normal;
+    .btn {
+      width: 25px;
+      height: 25px;
+      color: #007fdf;
+      cursor: pointer;
     }
   }
 }

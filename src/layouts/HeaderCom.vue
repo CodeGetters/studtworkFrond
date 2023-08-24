@@ -5,7 +5,7 @@ import { toggleDark } from "@/core/utils/themeAnimation";
 <template>
   <div
     id="headerCom"
-    class="w100% h60px flex flex-row items-center justify-between border-b-#0f172a1a border-1px border-solid"
+    class="w100% h60px flex flex-row items-center justify-between px30px"
   >
     <div class="logoBox hidden-xs-only">
       <div class="logo">
@@ -13,7 +13,6 @@ import { toggleDark } from "@/core/utils/themeAnimation";
       </div>
       <div class="desc">StudTWork</div>
     </div>
-    <!-- xs:w100% xs:justify-around -->
     <div
       class="iconList flex flex-row lg:w18% lg:pr20px xs:w100% xs:justify-around"
     >
@@ -39,9 +38,15 @@ import { toggleDark } from "@/core/utils/themeAnimation";
 <style scoped lang="scss">
 #headerCom {
   box-sizing: border-box;
+  border: 1px solid #0f172a1a;
 }
+
 .iconList .item:last-child {
   margin-right: 0;
+}
+
+.desc {
+  font-size: 16px;
 }
 
 .item {
@@ -54,6 +59,11 @@ import { toggleDark } from "@/core/utils/themeAnimation";
   margin-right: 16px;
   background-color: #f2f3f5;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.item:hover {
+  background-color: #e6eef5;
 }
 
 .dark .item {
@@ -66,6 +76,7 @@ import { toggleDark } from "@/core/utils/themeAnimation";
   display: flex;
   flex-direction: row;
   align-items: center;
+  cursor: pointer;
 
   .logo {
     width: 40px;

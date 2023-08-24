@@ -22,3 +22,9 @@ yarn format
 # commit 提交
 yarn cz
 ```
+
+## Features
+
+- i18n
+- vitest
+- ts

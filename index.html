@@ -4,10 +4,20 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/loading.css" />
     <title>studTWork</title>
   </head>
-  <body>
+  <body class="page-loading">
+    <!-- 页面加载时设置主题 -->
+    <!-- <script></script> -->
+
     <div id="app"></div>
+
+    <div id="loading-screen" class="loading-screen">
+      <img src="/favicon.svg" class="dark-logo" alt="dark logo" />
+      <img src="/favicon.svg" class="light-logo" alt="light logo" />
+      <span>Loading ...</span>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
