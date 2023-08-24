@@ -57,9 +57,11 @@ const submitAccount = (formEl: FormInstance | undefined) => {
 
 <template>
   <div class="loginPage h100vh flex justify-center items-center">
-    <div class="w100% h67% flex flex-row overflow-hidden rounded-10px bg-#fff">
+    <div
+      class="w100% lg:h67% xs:h60% flex flex-row overflow-hidden rounded-10px bg-#fff"
+    >
       <!-- left::begin -->
-      <div class="left h100% w100% flex-1 bg-#f3fafd">
+      <div class="left h100% w100% flex-1 bg-#f3fafd hidden-sm-and-down">
         <!-- logoCon::begin -->
         <div class="w52% h23% px-24% py-34% flex flex-col">
           <!-- logo::begin -->
@@ -130,19 +132,19 @@ const submitAccount = (formEl: FormInstance | undefined) => {
           <button
             type="submit"
             ref="submitButton"
-            class="submitButton w100% mt-16px h40px rounded-50px cursor-pointer text-#fff"
+            class="submitButton w100% lg:mt-30px xs:mt-40px h40px rounded-50px cursor-pointer text-#fff"
           >
             <span> Continue </span>
             <span style="display: none"> Please wait... </span>
           </button>
 
-          <div class="config-btn">
+          <div class="config-btn flex flex-row w15% justify-around">
             <div i-iconoir:translate class="btn dark:text-black" />
 
             <div
               i-carbon-sun
               dark:i-carbon-moon
-              class="btn ml-40px dark:text-black"
+              class="btn dark:text-black"
               @click="toggleDark"
             />
           </div>
@@ -189,7 +191,7 @@ const submitAccount = (formEl: FormInstance | undefined) => {
 
   .config-btn {
     position: absolute;
-    margin-top: 10%;
+    margin-top: 8%;
     margin-left: 65%;
 
     .btn {
