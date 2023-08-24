@@ -56,10 +56,12 @@ const submitAccount = (formEl: FormInstance | undefined) => {
 </script>
 
 <template>
-  <div class="loginPage h100vh flex justify-center items-center">
-    <div class="w100% h67% flex flex-row overflow-hidden rounded-10px bg-#fff">
+  <div id="loginPage" class="h100vh flex justify-center items-center">
+    <div
+      class="loginCon w100% lg:h67% xs:h60% flex flex-row overflow-hidden rounded-10px"
+    >
       <!-- left::begin -->
-      <div class="left h100% w100% flex-1 bg-#f3fafd">
+      <div class="left h100% w100% flex-1 hidden-sm-and-down">
         <!-- logoCon::begin -->
         <div class="w52% h23% px-24% py-34% flex flex-col">
           <!-- logo::begin -->
@@ -72,7 +74,7 @@ const submitAccount = (formEl: FormInstance | undefined) => {
             >
           </div>
           <!-- logo::end -->
-          <span class="h77% text-#368CD9 text-28px mt-3%"
+          <span class="desc h77% text-#368CD9 text-28px mt-3%"
             >学生 用功 团队 协作</span
           >
         </div>
@@ -130,19 +132,19 @@ const submitAccount = (formEl: FormInstance | undefined) => {
           <button
             type="submit"
             ref="submitButton"
-            class="submitButton w100% mt-16px h40px rounded-50px cursor-pointer text-#fff"
+            class="submitButton w100% lg:mt-30px xs:mt-40px h40px rounded-50px cursor-pointer text-#fff"
           >
             <span> Continue </span>
             <span style="display: none"> Please wait... </span>
           </button>
 
-          <div class="config-btn">
+          <div class="config-btn flex flex-row w15% justify-around">
             <div i-iconoir:translate class="btn dark:text-black" />
 
             <div
               i-carbon-sun
               dark:i-carbon-moon
-              class="btn ml-40px dark:text-black"
+              class="btn dark:text-black"
               @click="toggleDark"
             />
           </div>
@@ -154,48 +156,33 @@ const submitAccount = (formEl: FormInstance | undefined) => {
   </div>
 </template>
 
-<style scoped lang="scss">
-.loginPage {
+<style lang="scss" scoped>
+#loginPage {
   padding: 0% 13%;
-  background: linear-gradient(
-    45deg,
-    #c1deff 4.69%,
-    #e0eeff 26.56%,
-    #e5f8fb 87.13%
-  );
-
-  .left {
-    box-shadow: 0px 0px 9px 3px #c5dcfa;
-  }
-
-  .form-item {
-    height: 44%;
-    font-size: 24px;
-    font-style: normal;
-  }
-
-  :deep(.el-form-item__label) {
-    margin-bottom: 8px;
-    font-size: 16px;
-  }
-
-  .submitButton {
-    transition: all 0.3s ease;
-    background: linear-gradient(135deg, #38a7f8 24.58%, #5074f5 100%), #031f47;
-  }
-  .submitButton:hover {
-    background: linear-gradient(135deg, #6fbaef 24.58%, #748eed 100%), #031f47;
-  }
 
   .config-btn {
     position: absolute;
-    margin-top: 10%;
+    margin-top: 8%;
     margin-left: 65%;
+
+    .form-item {
+      height: 44%;
+      font-size: 24px;
+      font-style: normal;
+    }
+
+    :deep(.el-form-item__label) {
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    .submitButton {
+      transition: all 0.3s ease;
+    }
 
     .btn {
       width: 25px;
       height: 25px;
-      color: #007fdf;
       cursor: pointer;
     }
   }
