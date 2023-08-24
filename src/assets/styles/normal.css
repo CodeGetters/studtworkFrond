@@ -16,7 +16,7 @@
 }
 
 :root {
-  font-family: "CascadiaCode";
+  font-family: "CascadiaCode", "LXGWWenKai-Light";
 }
 
 /* toggle theme */
@@ -46,4 +46,13 @@
 .v-enter-from,
 .v-leave-to {
   opacity: 0;
+}
+
+button {
+  outline: none;
+  border: none;
+}
+a {
+  color: inherit;
+  text-decoration: none;
 }
