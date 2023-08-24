@@ -12,12 +12,11 @@ export const useConfigStore = defineStore("config", () => {
 
   // 获取默认布局配置的属性
   function getDefaultConfig(path: string, defaultValue?: string) {
-    console.log("config", config.value, path, defaultConfig);
     return objectPath.get(config.value, path, defaultValue);
   }
 
   // 修改默认布局配置
-  function setDefaultConfigProperty(property: string, value: any) {
+  function setDefaultConfigProperty(property: string, value) {
     objectPath.set(config.value, property, value);
     localStorage.setItem(CONFIG_NAME_KEY, JSON.stringify(config.value));
   }

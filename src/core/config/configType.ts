@@ -1,6 +1,7 @@
 interface Header {
   display: boolean;
   width: "fixed" | "fluid";
+  asideTop: boolean;
 }
 
 interface Footer {

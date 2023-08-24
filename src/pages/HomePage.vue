@@ -1,41 +1,59 @@
 <script setup lang="ts">
-import { useI18n } from "vue-i18n";
-const { locale, t } = useI18n();
-import { toggleDark } from "@/core/utils/themeAnimation";
-
+import { ref } from "vue";
 import HeaderCom from "@/layouts/HeaderCom.vue";
+import AsideCom from "@/layouts/AsideCom.vue";
+import MainCom from "@/layouts/MainCom.vue";
 
-/**
- * @description 语言切换
- */
-const changeLang = () => {
-  locale.value === "zh" ? (locale.value = "en") : (locale.value = "zh");
-};
+// 切换布局
+// TODO：手机单不支持切换布局
+const headerLayout = ref<boolean>(true);
 </script>
 
 <template>
-  <div class="home .dark:bg-black .dark:text-#fff">
-    <HeaderCom />
-    <div class="pageChange">
-      <span class="text-red">当前页面 home</span>
-      <router-link to="/404" text-lightBlue>前往 notFound</router-link>
-    </div>
-    <span bg-red>{{ t("hello") }}</span>
-    <button @click="changeLang()">语言切换{{ locale }}</button>
-    <button @click="toggleDark">主题切换</button>
-    <!-- <span bg="blue-400 hover:blue-500">预设</span> -->
+  <div id="homePage">
+    <!-- 布局一 -->
+    <el-container v-show="headerLayout">
+      <el-header flex flex-row height="auto">
+        <HeaderCom />
+      </el-header>
+      <el-container h92vh>
+        <AsideCom />
+        <el-container>
+          <el-switch v-model="headerLayout" />
+          <MainCom />
+        </el-container>
+      </el-container>
+    </el-container>
+
+    <!-- 布局二 -->
+    <el-container v-show="!headerLayout">
+      <el-container h100vh>
+        <AsideCom />
+        <el-container>
+          <el-header height="auto">
+            <HeaderCom />
+          </el-header>
+          <el-switch v-model="headerLayout" />
+          <MainCom />
+        </el-container>
+      </el-container>
+    </el-container>
   </div>
 </template>
+
 <style lang="scss">
-.home {
-  height: 100vh;
-  width: 100%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
+.el-header {
+  padding: 0;
+}
+.dark #homePage {
+  background-color: black;
+  color: #fff;
 }
 
-button {
-  width: 100px;
+el-aside[deep],
+el-container[deep],
+el-header[deep] {
+  background-color: black;
+  color: #fff;
 }
 </style>
