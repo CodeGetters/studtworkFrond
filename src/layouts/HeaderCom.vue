@@ -25,8 +25,8 @@ import { toggleDark } from "@/core/utils/themeAnimation";
       <div class="item">
         <div i-zondicons:notifications-outline />
       </div>
-      <div class="item">
-        <div i-carbon-sun dark:i-carbon-moon @click="toggleDark" />
+      <div class="item" @click="toggleDark">
+        <div i-carbon-sun dark:i-carbon-moon />
       </div>
       <div class="item">
         <div i-ic:outline-settings />
