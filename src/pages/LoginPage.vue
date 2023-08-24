@@ -58,10 +58,10 @@ const submitAccount = (formEl: FormInstance | undefined) => {
 <template>
   <div class="loginPage h100vh flex justify-center items-center">
     <div
-      class="w100% lg:h67% xs:h60% flex flex-row overflow-hidden rounded-10px bg-#fff"
+      class="loginCon w100% lg:h67% xs:h60% flex flex-row overflow-hidden rounded-10px"
     >
       <!-- left::begin -->
-      <div class="left h100% w100% flex-1 bg-#f3fafd hidden-sm-and-down">
+      <div class="left h100% w100% flex-1 hidden-sm-and-down">
         <!-- logoCon::begin -->
         <div class="w52% h23% px-24% py-34% flex flex-col">
           <!-- logo::begin -->
@@ -74,7 +74,7 @@ const submitAccount = (formEl: FormInstance | undefined) => {
             >
           </div>
           <!-- logo::end -->
-          <span class="h77% text-#368CD9 text-28px mt-3%"
+          <span class="desc h77% text-#368CD9 text-28px mt-3%"
             >学生 用功 团队 协作</span
           >
         </div>
@@ -159,12 +159,6 @@ const submitAccount = (formEl: FormInstance | undefined) => {
 <style scoped lang="scss">
 .loginPage {
   padding: 0% 13%;
-  background: linear-gradient(
-    45deg,
-    #c1deff 4.69%,
-    #e0eeff 26.56%,
-    #e5f8fb 87.13%
-  );
 
   .left {
     box-shadow: 0px 0px 9px 3px #c5dcfa;

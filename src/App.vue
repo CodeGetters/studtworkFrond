@@ -28,5 +28,6 @@ onMounted(() => {
 
 <style lang="scss">
 @import "normalize.css";
+@import "./assets/styles/scss/init.scss";
 @import "@/assets/styles/normal.css";
 </style>

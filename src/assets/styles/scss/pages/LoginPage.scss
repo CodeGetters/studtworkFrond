@@ -1,0 +1,32 @@
+@import "./variables.scss";
+
+.loginPage {
+  color: $black;
+  background-color: $left-con-bg;
+
+  .loginCon {
+    background-color: $white;
+
+    .left {
+      background: $from-left-light-bg;
+    }
+  }
+}
+
+.dark .loginPage {
+  background-color: $crystalViolet;
+
+  .loginCon {
+    color: $white;
+    background-color: $from-right-dark-bg;
+
+    .left {
+      color: $white;
+      background-color: $from-left-dark-bg;
+
+      .desc {
+        color: $white;
+      }
+    }
+  }
+}
