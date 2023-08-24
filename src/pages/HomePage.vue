@@ -45,6 +45,7 @@ const headerLayout = ref<boolean>(true);
 .el-header {
   padding: 0;
 }
+
 .dark #homePage {
   background-color: black;
   color: #fff;

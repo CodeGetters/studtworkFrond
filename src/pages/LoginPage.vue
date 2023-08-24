@@ -56,7 +56,7 @@ const submitAccount = (formEl: FormInstance | undefined) => {
 </script>
 
 <template>
-  <div class="loginPage h100vh flex justify-center items-center">
+  <div id="loginPage" class="h100vh flex justify-center items-center">
     <div
       class="loginCon w100% lg:h67% xs:h60% flex flex-row overflow-hidden rounded-10px"
     >
@@ -156,42 +156,33 @@ const submitAccount = (formEl: FormInstance | undefined) => {
   </div>
 </template>
 
-<style scoped lang="scss">
-.loginPage {
+<style lang="scss" scoped>
+#loginPage {
   padding: 0% 13%;
-
-  .left {
-    box-shadow: 0px 0px 9px 3px #c5dcfa;
-  }
-
-  .form-item {
-    height: 44%;
-    font-size: 24px;
-    font-style: normal;
-  }
-
-  :deep(.el-form-item__label) {
-    margin-bottom: 8px;
-    font-size: 16px;
-  }
-
-  .submitButton {
-    transition: all 0.3s ease;
-    background: linear-gradient(135deg, #38a7f8 24.58%, #5074f5 100%), #031f47;
-  }
-  .submitButton:hover {
-    background: linear-gradient(135deg, #6fbaef 24.58%, #748eed 100%), #031f47;
-  }
 
   .config-btn {
     position: absolute;
     margin-top: 8%;
     margin-left: 65%;
 
+    .form-item {
+      height: 44%;
+      font-size: 24px;
+      font-style: normal;
+    }
+
+    :deep(.el-form-item__label) {
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    .submitButton {
+      transition: all 0.3s ease;
+    }
+
     .btn {
       width: 25px;
       height: 25px;
-      color: #007fdf;
       cursor: pointer;
     }
   }

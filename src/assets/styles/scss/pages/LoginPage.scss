@@ -1,32 +1,106 @@
-@import "./variables.scss";
+$black: #000;
+$white: #fff;
 
-.loginPage {
-  color: $black;
-  background-color: $left-con-bg;
+$login-page-light-bg: linear-gradient(
+  45deg,
+  #c1deff 4.69%,
+  #e0eeff 26.56%,
+  #e5f8fb 87.13%
+);
+$login-page-dark-bg: linear-gradient(
+  45deg,
+  #3a7ecd 4.69%,
+  #4991d2 36.46%,
+  #37b6c8 87.13%
+);
+
+$from-left-light-bg: #f3fafd;
+$from-left-dark-bg: #07346f;
+
+$left-logo-light-text: #000;
+$left-logo-dark-text: #fff;
+
+$left-logo-light-desc: #368cd9;
+$left-logo-dark-desc: #5092f5;
+
+$from-right-light-bg: #fff;
+$from-right-dark-bg: #2964b0;
+
+$left-light-shadow: #c5dcfa;
+$left-dark-shadow: #29344a;
+
+$right-submitBtn-light-bg: linear-gradient(135deg, #38a7f8 24.58%, #5074f5 100%),
+  #031f47;
+$right-submitBtn-dark-bg: linear-gradient(135deg, #38a7f8 24.58%, #5074f5 100%),
+  #031f47;
+
+$right-submitBtn-light-hover-bg: linear-gradient(
+    135deg,
+    #6fbaef 24.58%,
+    #748eed 100%
+  ),
+  #031f47;
+$right-submitBtn-dark-hover-bg: linear-gradient(
+    135deg,
+    #6fbaef 24.58%,
+    #748eed 100%
+  ),
+  #031f47;
+
+$right-config-btn-light: #007fdf;
+$right-config-btn-dark: #fff;
+
+// ---------------------------------------------------------------------------
+
+#loginPage {
+  background: $login-page-light-bg;
 
   .loginCon {
-    background-color: $white;
+    background-color: $from-right-light-bg;
 
     .left {
-      background: $from-left-light-bg;
+      color: $black;
+      background-color: $from-left-light-bg;
+      box-shadow: 0px 0px 9px 3px $left-light-shadow;
+    }
+    .submitButton {
+      background: $right-submitBtn-light-bg;
+    }
+    .submitButton:hover {
+      background: $right-submitBtn-light-hover-bg;
+    }
+
+    .btn {
+      background-color: $right-config-btn-light;
     }
   }
 }
 
-.dark .loginPage {
-  background-color: $crystalViolet;
+.dark #loginPage {
+  background: $login-page-dark-bg;
 
   .loginCon {
     color: $white;
-    background-color: $from-right-dark-bg;
+    background-color: $from-left-dark-bg;
 
     .left {
       color: $white;
-      background-color: $from-left-dark-bg;
+      background-color: $from-right-dark-bg;
+      box-shadow: 0px 0px 9px 3px $left-dark-shadow;
 
       .desc {
         color: $white;
       }
+    }
+    .submitButton {
+      background: $right-submitBtn-dark-bg;
+    }
+    .submitButton:hover {
+      background: $right-submitBtn-dark-hover-bg;
+    }
+
+    .btn {
+      background-color: $right-config-btn-dark;
     }
   }
 }
