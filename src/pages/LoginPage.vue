@@ -53,58 +53,70 @@ const rules = reactive<FormRules<typeof ruleForm>>({
 </script>
 
 <template>
-  <div class="loginPage">
-    <div class="loginBox">
-      <div class="left">
-        <div class="logo">
-          <div class="logo-top">
-            <div class="logo-image">
-              <img :src="logo" />
+  <div class="loginPage h100vh flex justify-center items-center">
+    <div class="w100% h67% flex flex-row overflow-hidden rounded-10px bg-#fff">
+      <!-- left::begin -->
+      <div class="left h100% w100% flex-1 bg-#f3fafd">
+        <!-- logoCon::begin -->
+        <div class="w52% h23% px-24% py-34% flex flex-col">
+          <!-- logo::begin -->
+          <div class="w100% h66% flex flex-row">
+            <div class="h100% w31% mr-2%">
+              <img :src="logo" alt="logo" class="w100% h100%" />
             </div>
-            <div class="logo1">StudTWork</div>
+            <span class="w67% h100% flex items-center text-38px italic"
+              >StudTWork</span
+            >
           </div>
-          <div class="logo-bottom">
-            <div class="logo2 logo-container">学生 用功 团队协作</div>
-          </div>
+          <!-- logo::end -->
+          <span class="h77% text-#368CD9 text-28px mt-3%"
+            >学生 用功 团队 协作</span
+          >
         </div>
+        <!-- logoCon::end -->
       </div>
+      <!-- left::end -->
 
-      <div class="right">
-        <h1 class="loginTitlte">登录</h1>
-        <el-form
-          ref="ruleFormRef"
-          :model="ruleForm"
-          status-icon
-          :rules="rules"
-          label-width="120px"
-          class="demo-ruleForm"
-          label-position="top"
-        >
-          <el-form-item label="账号" class="custom-label" prop="username">
-            <el-input
-              placeholder="请输入用户名/手机号/邮箱号"
-              v-model="ruleForm.username"
-              autocomplete="off"
-              class="custom-input"
-            />
-          </el-form-item>
-          <el-form-item label="密码" class="custom-label" prop="password">
-            <el-input
-              placeholder="请输入密码"
-              v-model="ruleForm.password"
-              type="password"
-              autocomplete="off"
-              :style="{ width: '530px', height: '50px' }"
-            />
-          </el-form-item>
-        </el-form>
-        <router-link
-          class="forgot"
-          to="/forgot-password"
-          :style="{ marginTop: '0' }"
-          >忘记密码</router-link
-        >
-        <el-button type="primary" :style="{ width: '530px', height: '50px' }">
+      <!-- right:begin -->
+      <!-- 723px -->
+      <div class="right flex-1 h100% flex-col items-center">
+        <!-- loginForm::begin -->
+        <div class="loginForm w74% h70% px13% py13%">
+          <div text="35px center" class="font-600">登录</div>
+          <el-form
+            ref="ruleFormRef"
+            :model="ruleForm"
+            status-icon
+            :rules="rules"
+            label-width="120px"
+            class="demo-ruleForm"
+            label-position="top"
+          >
+            <el-form-item label="账号" class="custom-label" prop="username">
+              <el-input
+                placeholder="请输入用户名/手机号/邮箱号"
+                v-model="ruleForm.username"
+                autocomplete="off"
+                class="custom-input"
+              />
+            </el-form-item>
+            <el-form-item label="密码" class="custom-label" prop="password">
+              <el-input
+                placeholder="请输入密码"
+                v-model="ruleForm.password"
+                type="password"
+                autocomplete="off"
+                :style="{ width: '530px', height: '50px' }"
+              />
+            </el-form-item>
+          </el-form>
+          <!-- <router-link
+            class="forgot"
+            to="/forgot-password"
+            :style="{ marginTop: '0' }"
+            >忘记密码</router-link
+          > -->
+          <!-- <el-button type="primary" :style="{ width: '530px', height: '50px' }">
           登录
         </el-button>
         <div class="flex justify-center mt-24">
@@ -120,8 +132,11 @@ const rules = reactive<FormRules<typeof ruleForm>>({
         </div>
         <router-link to="/register" class="register-link">
           没有账号，<span class="blue-text">去注册</span>
-        </router-link>
+        </router-link> -->
+        </div>
+        <!-- loginFrom::end -->
       </div>
+      <!-- right::end -->
     </div>
   </div>
 </template>
@@ -133,18 +148,27 @@ const rules = reactive<FormRules<typeof ruleForm>>({
 }
 
 .loginPage {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 0% 13%;
   background: linear-gradient(
     45deg,
     #c1deff 4.69%,
     #e0eeff 26.56%,
     #e5f8fb 87.13%
   );
+  .left {
+    box-shadow: 0px 0px 9px 3px #c5dcfa;
+  }
+  .loginTitle {
+    margin-top: 40px;
+    margin-bottom: 0px;
+    line-height: 86px;
+    width: 122px;
+    height: 57px;
+    text-align: center;
+    font-size: 48px;
+    font-style: normal;
+  }
 
-  //left
   .logo-image {
     margin-right: 8px;
     width: 113px;
@@ -174,17 +198,6 @@ const rules = reactive<FormRules<typeof ruleForm>>({
     line-height: normal;
     letter-spacing: 2.8px;
   }
-
-  .logo {
-    width: 364px;
-    height: 169px;
-
-    display: inline-flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 17px;
-  }
-
   //right
   .register-link {
     text-decoration: none;
@@ -260,49 +273,6 @@ const rules = reactive<FormRules<typeof ruleForm>>({
 
   .formWrapper {
     margin-bottom: 24px;
-  }
-
-  .loginBox {
-    width: 1421px;
-    height: 80%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-
-    .left {
-      flex: 1;
-      display: flex;
-      height: 100%;
-      align-items: center;
-      justify-content: center;
-      // border: 1px solid #31383f;
-      border-right: none;
-      background: #f3fafd;
-      box-shadow: 0px 0px 9px 3px #c5dcfa;
-    }
-
-    .right {
-      flex: 1;
-      height: 100%;
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 24px;
-      background-color: #ffffff;
-    }
-
-    .loginTitlte {
-      margin-top: 40px;
-      margin-bottom: 0px;
-      line-height: 86px;
-      width: 122px;
-      height: 57px;
-      text-align: center;
-      font-family: Abhaya Libre SemiBold;
-      font-size: 48px;
-      font-style: normal;
-    }
   }
 }
 </style>

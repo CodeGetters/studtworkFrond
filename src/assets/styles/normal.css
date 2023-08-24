@@ -5,6 +5,16 @@
   src: url("../fonts/CascadiaCode.ttf");
 }
 
+@font-face {
+  font-family: "LXGWWenKai-Light";
+  src: url("../fonts/LXGWWenKai-Light.ttf");
+}
+
+@font-face {
+  font-family: "LXGWWenKai-Bold";
+  src: url("../fonts/LXGWWenKai-Bold.ttf");
+}
+
 :root {
   font-family: "CascadiaCode";
 }
