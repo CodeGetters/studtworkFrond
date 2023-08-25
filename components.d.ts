@@ -7,6 +7,8 @@ export {}
 
 declare module "vue" {
   export interface GlobalComponents {
+    DashboardCom: (typeof import("./src/components/DashboardCom.vue"))["default"];
+    DashboardPage: (typeof import("./src/components/DashboardPage.vue"))["default"];
     ElAside: (typeof import("element-plus/es"))["ElAside"];
     ElButton: (typeof import("element-plus/es"))["ElButton"];
     ElContainer: (typeof import("element-plus/es"))["ElContainer"];

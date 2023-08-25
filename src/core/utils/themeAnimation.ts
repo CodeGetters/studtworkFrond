@@ -1,12 +1,9 @@
-import { useDark } from "@vueuse/core";
 import { nextTick } from "vue";
+import { useDark } from "@vueuse/core";
 
 export const isDark = useDark();
 
 /**
- * api intro:https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API
- * demo:https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API#controlling_animations_with_javascript
- * demo(need chrome v111 ⬆):https://mdn.github.io/dom-examples/view-transitions/
  * @param event
  */
 export function toggleDark(event: MouseEvent): void {

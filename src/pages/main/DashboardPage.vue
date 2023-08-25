@@ -17,17 +17,15 @@ const headerLayout = ref(true);
 </script>
 
 <template>
-  <div id="mainCom">
-    <el-main>
-      切换布局
-      <el-switch v-model="headerLayout" />
-      <span bg-red>{{ t("hello") }}</span>
-      <button @click="changeLang()">语言切换{{ locale }}</button>
-      <button @click="toggleDark">主题切换</button>
-      <span class="text-red">当前页面 home</span>
-      <router-link to="/404" text-black>前往 notFound</router-link>
-    </el-main>
+  <div id="dashboardCom">
+    切换布局
+    <el-switch v-model="headerLayout" />
+    <span bg-red>{{ t("hello") }}</span>
+    <button @click="changeLang()">语言切换{{ locale }}</button>
+    <button @click="toggleDark">主题切换</button>
+    <span class="text-red">当前页面 home</span>
+    <router-link to="/404" text-black>前往 notFound</router-link>
   </div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss" scoped></style>

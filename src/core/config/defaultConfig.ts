@@ -10,6 +10,13 @@ const config: defaultConfig = {
     display: true,
     width: "fixed",
   },
+  aside: {
+    display: true,
+    collapse: true,
+    popperEffect: "light",
+    backgroundColor: "#000",
+    textColor: "#fff",
+  },
 };
 
 export default config;
