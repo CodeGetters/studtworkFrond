@@ -1,12 +1,11 @@
-import { useDark } from "@vueuse/core";
 import { nextTick } from "vue";
+import { useDark } from "@vueuse/core";
+import { useConfigStore } from "@/store/config";
 
 export const isDark = useDark();
+const configStore = useConfigStore();
 
 /**
- * api intro:https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API
- * demo:https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API#controlling_animations_with_javascript
- * demo(need chrome v111 ⬆):https://mdn.github.io/dom-examples/view-transitions/
  * @param event
  */
 export function toggleDark(event: MouseEvent): void {
@@ -57,4 +56,19 @@ export function toggleDark(event: MouseEvent): void {
       },
     );
   });
+
+  // TODO:过渡优化
+  const theme = localStorage.getItem("vueuse-color-scheme");
+
+  if (theme === "dark") {
+    setTimeout(() => {
+      configStore.setDefaultConfigProperty("aside.backgroundColor", "#fff");
+      configStore.setDefaultConfigProperty("aside.textColor", "#000");
+      configStore.setDefaultConfigProperty("headers.backgroundColor", "#fff");
+    }, 300);
+  } else {
+    configStore.setDefaultConfigProperty("aside.backgroundColor", "#000");
+    configStore.setDefaultConfigProperty("aside.textColor", "#fff");
+    configStore.setDefaultConfigProperty("headers.backgroundColor", "#000");
+  }
 }

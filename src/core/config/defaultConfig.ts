@@ -1,14 +1,25 @@
 import type defaultConfig from "./configType";
 const config: defaultConfig = {
+  mainLayout: {
+    asideTop: false,
+    backgroundColor: "#fff",
+  },
   headers: {
     display: true,
     width: "fixed",
-    // 布局方式
-    asideTop: false,
+    backgroundColor: "#fff",
   },
   footer: {
     display: true,
     width: "fixed",
+    backgroundColor: "#fff",
+  },
+  aside: {
+    display: true,
+    collapse: true,
+    popperEffect: "light",
+    backgroundColor: "#fff",
+    textColor: "#000",
   },
 };
 
