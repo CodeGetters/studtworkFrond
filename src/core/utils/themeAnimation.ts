@@ -59,6 +59,7 @@ export function toggleDark(event: MouseEvent): void {
     );
   });
 
+  // TODO：迁移到 main 页面
   const theme = localStorage.getItem("vueuse-color-scheme");
 
   if (theme === "dark") {

@@ -18,7 +18,7 @@ const setCollapse = (): void => {
 
 <template>
   <div id="asideCom" v-if="displayAside">
-    <el-aside width="auto" class="h100%" bg-blueGray>
+    <el-aside width="auto" class="h100%">
       <el-menu
         default-active="2"
         class="el-menu-vertical-demo h100%"

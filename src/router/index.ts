@@ -8,9 +8,6 @@ const routes: Array<RouteRecordRaw> = [
     path: "/",
     redirect: "/dashboard",
     component: () => import("@/layouts/core/MainLayout.vue"),
-    meta: {
-      middleware: "auth",
-    },
     children: [
       {
         path: "/dashboard",
