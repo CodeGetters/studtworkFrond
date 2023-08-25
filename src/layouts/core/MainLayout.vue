@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import HeaderCom from "@/layouts/base/HeaderCom.vue";
 import AsideCom from "@/layouts/base/AsideCom.vue";
-import { asideTopLayout } from "@/core/helpers/config";
+import { asideTopLayout, mainBgc } from "@/core/helpers/config";
 </script>
 
 <template>
@@ -15,7 +15,7 @@ import { asideTopLayout } from "@/core/helpers/config";
         <AsideCom />
         <el-container>
           <el-main>
-            <router-view />
+            <router-view :style="`background-color${mainBgc}`" />
           </el-main>
         </el-container>
       </el-container>
@@ -30,7 +30,7 @@ import { asideTopLayout } from "@/core/helpers/config";
             <HeaderCom />
           </el-header>
           <el-main>
-            <router-view />
+            <router-view :style="`background-color${mainBgc}`" />
           </el-main>
         </el-container>
       </el-container>

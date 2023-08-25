@@ -1,11 +1,9 @@
 import { nextTick } from "vue";
 import { useDark } from "@vueuse/core";
-// import { asideBgc, asideColor, asidePopperEffect } from "@/core/helpers/config";
 import { useConfigStore } from "@/store/config";
 
-const configStore = useConfigStore();
-
 export const isDark = useDark();
+const configStore = useConfigStore();
 
 /**
  * @param event
@@ -59,16 +57,18 @@ export function toggleDark(event: MouseEvent): void {
     );
   });
 
-  // TODO：迁移到 main 页面
+  // TODO:过渡优化
   const theme = localStorage.getItem("vueuse-color-scheme");
 
   if (theme === "dark") {
     setTimeout(() => {
       configStore.setDefaultConfigProperty("aside.backgroundColor", "#fff");
       configStore.setDefaultConfigProperty("aside.textColor", "#000");
+      configStore.setDefaultConfigProperty("headers.backgroundColor", "#fff");
     }, 300);
   } else {
     configStore.setDefaultConfigProperty("aside.backgroundColor", "#000");
     configStore.setDefaultConfigProperty("aside.textColor", "#fff");
+    configStore.setDefaultConfigProperty("headers.backgroundColor", "#000");
   }
 }

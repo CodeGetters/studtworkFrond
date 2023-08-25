@@ -18,6 +18,14 @@ export const displayHeader = computed(() => {
 });
 
 /**
+ * Get the header bgc
+ * @returns {boolean}
+ */
+export const headerBgc = computed(() => {
+  return useConfigStore().getDefaultConfig("headers.backgroundColor");
+});
+
+/**
  * Get the aside display
  * @returns {boolean}
  */
@@ -63,4 +71,12 @@ export const asidePopperEffect = computed(() => {
  */
 export const asideTopLayout = computed(() => {
   return useConfigStore().getDefaultConfig("mainLayout.asideTop");
+});
+
+/**
+ * Get the main bgc
+ * @returns {string}
+ */
+export const mainBgc = computed(() => {
+  return useConfigStore().getDefaultConfig("mainLayout.backgroundColor");
 });

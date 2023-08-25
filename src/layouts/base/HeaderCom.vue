@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { toggleDark } from "@/core/utils/themeAnimation";
-import { displayHeader } from "@/core/helpers/config";
+import { displayHeader, headerBgc } from "@/core/helpers/config";
 </script>
 
 <template>
   <div
     id="headerCom"
     v-if="displayHeader"
+    :style="`background-color:${headerBgc}`"
     class="w100% h60px flex flex-row items-center justify-between px30px box-border"
   >
     <div
@@ -39,18 +40,16 @@ import { displayHeader } from "@/core/helpers/config";
   </div>
 </template>
 
-<style scoped lang="scss">
-#headerCom {
-  .item {
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    font-size: 14px;
-    border-radius: 50%;
-    margin-right: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
+<style scoped>
+.item {
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 50%;
+  margin-right: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 </style>

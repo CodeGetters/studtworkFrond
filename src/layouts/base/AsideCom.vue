@@ -48,3 +48,17 @@ const setCollapse = (): void => {
     </el-aside>
   </div>
 </template>
+
+<style scoped lang="scss">
+:deep(.el-menu-item):hover {
+  background-color: #d1e3fc;
+}
+.dark #asideCom {
+  :deep(.el-menu) {
+    border-right: 1px solid #626262;
+  }
+  :deep(.el-menu-item):hover {
+    background-color: #1f3a60;
+  }
+}
+</style>

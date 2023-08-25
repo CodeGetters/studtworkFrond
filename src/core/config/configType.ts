@@ -1,11 +1,13 @@
 interface Header {
   display: boolean;
   width: "fixed" | "fluid";
+  backgroundColor: string;
 }
 
 interface Footer {
   display: boolean;
   width: "fixed" | "fluid";
+  backgroundColor: string;
 }
 
 interface Aside {
@@ -18,6 +20,7 @@ interface Aside {
 
 interface MainLayout {
   asideTop: boolean;
+  backgroundColor: string;
 }
 
 interface defaultConfig {
