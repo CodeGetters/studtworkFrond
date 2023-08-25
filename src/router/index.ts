@@ -5,6 +5,7 @@ import type { RouteRecordRaw, RouterOptions, Router } from "vue-router";
 
 import Home from "@/pages/HomePage.vue";
 import LoginPage from "@/pages/LoginPage.vue";
+import RegistrationPage from "@/pages/RegistrationPage.vue";
 
 const NotFound = () => import("@/pages/NotFound.vue");
 
@@ -29,6 +30,13 @@ const routes: Array<RouteRecordRaw> = [
     component: NotFound,
     meta: {
       pageTitle: "NotFound",
+    },
+  },
+  {
+    path: "/register",
+    component: RegistrationPage,
+    meta: {
+      pageTitle: "Register",
     },
   },
 ];

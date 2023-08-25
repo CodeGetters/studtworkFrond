@@ -122,7 +122,7 @@ const submitAccount = (formEl: FormInstance | undefined) => {
 
           <div class="w100% flex flex-row justify-between">
             <span class="text-#A5AFBD">忘记密码</span>
-            <router-link to="/" class="text-#A5AFBD">
+            <router-link to="/register" class="text-#A5AFBD">
               没有账号，<span text="#4E7AF6">去注册</span>
             </router-link>
           </div>
@@ -183,6 +183,7 @@ const submitAccount = (formEl: FormInstance | undefined) => {
     transition: all 0.3s ease;
     background: linear-gradient(135deg, #38a7f8 24.58%, #5074f5 100%), #031f47;
   }
+
   .submitButton:hover {
     background: linear-gradient(135deg, #6fbaef 24.58%, #748eed 100%), #031f47;
   }
