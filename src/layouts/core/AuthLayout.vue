@@ -35,11 +35,24 @@ import logo from "/favicon.svg";
       </div>
       <!-- right::end -->
     </div>
+    <div
+      class="bottom-3% absolute flex flex-col text-#007fdf items-center select-none lg:text-18px xs:text-10px"
+    >
+      <div>
+        <a href="javascript:;"><span>隐私内容</span></a> |<a
+          href="javascript:;"
+        >
+          <span>政策协议</span>
+        </a>
+      </div>
+      <div mt-10px>Copyright @ 2023 JohnsonXin & 泽泽 & Zooey</div>
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 #loginPage {
   padding: 0% 13%;
+  position: relative;
 }
 </style>
