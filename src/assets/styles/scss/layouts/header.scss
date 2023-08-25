@@ -1,0 +1,32 @@
+#headerCom {
+  border-bottom: 1px solid #0f172a1a;
+
+  .item {
+    background-color: #f2f3f5;
+
+    &:hover {
+      background-color: #e6eef5;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.dark #headerCom {
+  border-bottom: 1px solid #7a7979;
+
+  .item {
+    color: black;
+    background-color: #fff;
+
+    &:hover {
+      background-color: #e6eef5;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

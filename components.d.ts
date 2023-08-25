@@ -7,12 +7,8 @@ export {}
 
 declare module "vue" {
   export interface GlobalComponents {
-    DashboardCom: (typeof import("./src/components/DashboardCom.vue"))["default"];
-    DashboardPage: (typeof import("./src/components/DashboardPage.vue"))["default"];
     ElAside: (typeof import("element-plus/es"))["ElAside"];
-    ElButton: (typeof import("element-plus/es"))["ElButton"];
     ElContainer: (typeof import("element-plus/es"))["ElContainer"];
-    ElDatePicker: (typeof import("element-plus/es"))["ElDatePicker"];
     ElForm: (typeof import("element-plus/es"))["ElForm"];
     ElFormItem: (typeof import("element-plus/es"))["ElFormItem"];
     ElHeader: (typeof import("element-plus/es"))["ElHeader"];
@@ -23,7 +19,6 @@ declare module "vue" {
     ElMenuItem: (typeof import("element-plus/es"))["ElMenuItem"];
     ElMenuItemGroup: (typeof import("element-plus/es"))["ElMenuItemGroup"];
     ElSubMenu: (typeof import("element-plus/es"))["ElSubMenu"];
-    ElSwitch: (typeof import("element-plus/es"))["ElSwitch"];
     RouterLink: (typeof import("vue-router"))["RouterLink"];
     RouterView: (typeof import("vue-router"))["RouterView"];
   }

@@ -7,13 +7,15 @@ import { displayHeader } from "@/core/helpers/config";
   <div
     id="headerCom"
     v-if="displayHeader"
-    class="w100% h60px flex flex-row items-center justify-between px30px"
+    class="w100% h60px flex flex-row items-center justify-between px30px box-border"
   >
-    <div class="logoBox hidden-xs-only">
-      <div class="logo">
-        <img src="/favicon.svg" alt="" />
+    <div
+      class="hidden-xs-only w142px h100% flex flex-row items-center cursor-pointer"
+    >
+      <div class="logo w40px">
+        <img src="/favicon.svg" alt="logo" class="w100% h100%" />
       </div>
-      <div class="desc">StudTWork</div>
+      <div class="text-16px italic font-extrabold">StudTWork</div>
     </div>
     <div
       class="iconList flex flex-row lg:w18% lg:pr20px xs:w100% xs:justify-around"
@@ -39,59 +41,16 @@ import { displayHeader } from "@/core/helpers/config";
 
 <style scoped lang="scss">
 #headerCom {
-  box-sizing: border-box;
-  border: 1px solid #0f172a1a;
-}
-
-.iconList .item:last-child {
-  margin-right: 0;
-}
-
-.desc {
-  font-size: 16px;
-}
-
-.item {
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
-  font-size: 14px;
-  border-radius: 50%;
-  margin-right: 16px;
-  background-color: #f2f3f5;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.item:hover {
-  background-color: #e6eef5;
-}
-
-.dark .item {
-  background-color: black;
-}
-
-.logoBox {
-  width: 142px;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  cursor: pointer;
-
-  .logo {
+  .item {
     width: 40px;
-    img {
-      width: 100%;
-      height: 100%;
-    }
-    .desc {
-      font-size: 16px;
-      font-style: italic;
-      font-weight: 800;
-      line-height: normal;
-    }
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 50%;
+    margin-right: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
   }
 }
 </style>

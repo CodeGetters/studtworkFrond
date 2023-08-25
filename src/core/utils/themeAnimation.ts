@@ -1,5 +1,9 @@
 import { nextTick } from "vue";
 import { useDark } from "@vueuse/core";
+// import { asideBgc, asideColor, asidePopperEffect } from "@/core/helpers/config";
+import { useConfigStore } from "@/store/config";
+
+const configStore = useConfigStore();
 
 export const isDark = useDark();
 
@@ -54,4 +58,16 @@ export function toggleDark(event: MouseEvent): void {
       },
     );
   });
+
+  const theme = localStorage.getItem("vueuse-color-scheme");
+
+  if (theme === "dark") {
+    setTimeout(() => {
+      configStore.setDefaultConfigProperty("aside.backgroundColor", "#fff");
+      configStore.setDefaultConfigProperty("aside.textColor", "#000");
+    }, 300);
+  } else {
+    configStore.setDefaultConfigProperty("aside.backgroundColor", "#000");
+    configStore.setDefaultConfigProperty("aside.textColor", "#fff");
+  }
 }
