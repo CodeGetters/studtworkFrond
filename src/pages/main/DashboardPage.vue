@@ -1,8 +1,11 @@
 <script setup lang="ts">
-import { ref } from "vue";
 const { locale, t } = useI18n();
 import { useI18n } from "vue-i18n";
 import { toggleDark } from "@/core/utils/themeAnimation";
+import { asideTopLayout } from "@/core/helpers/config";
+import { useConfigStore } from "@/store/config";
+
+const configStore = useConfigStore();
 
 /**
  * @description 语言切换
@@ -11,15 +14,17 @@ const changeLang = () => {
   locale.value === "zh" ? (locale.value = "en") : (locale.value = "zh");
 };
 
-// 切换布局
-// TODO：手机单不支持切换布局
-const headerLayout = ref(true);
+const changeLayout = (): void => {
+  configStore.setDefaultConfigProperty(
+    "mainLayout.asideTop",
+    !asideTopLayout.value,
+  );
+};
 </script>
 
 <template>
   <div id="dashboardCom">
-    切换布局
-    <el-switch v-model="headerLayout" />
+    <button @click="changeLayout()">切换布局</button>
     <span bg-red>{{ t("hello") }}</span>
     <button @click="changeLang()">语言切换{{ locale }}</button>
     <button @click="toggleDark">主题切换</button>

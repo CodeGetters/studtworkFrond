@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { toggleDark } from "@/core/utils/themeAnimation";
+import { displayHeader } from "@/core/helpers/config";
 </script>
 
 <template>
   <div
     id="headerCom"
+    v-if="displayHeader"
     class="w100% h60px flex flex-row items-center justify-between px30px"
   >
     <div class="logoBox hidden-xs-only">

@@ -1,7 +1,6 @@
 interface Header {
   display: boolean;
   width: "fixed" | "fluid";
-  asideTop: boolean;
 }
 
 interface Footer {
@@ -17,11 +16,16 @@ interface Aside {
   textColor: string;
 }
 
+interface MainLayout {
+  asideTop: boolean;
+}
+
 interface defaultConfig {
+  mainLayout: MainLayout;
   headers: Header;
   footer: Footer;
   aside: Aside;
 }
 
 export default defaultConfig;
-export type { Header, defaultConfig, Aside, Footer };
+export type { defaultConfig, Header, Aside, Footer, MainLayout };

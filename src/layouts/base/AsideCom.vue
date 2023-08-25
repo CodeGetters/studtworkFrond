@@ -1,27 +1,31 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
-import { Menu as IconMenu, Location } from "@element-plus/icons-vue";
 import { useConfigStore } from "@/store/config";
+import { Menu as IconMenu, Location } from "@element-plus/icons-vue";
+import {
+  asideBgc,
+  asideColor,
+  displayAside,
+  asideCollapse,
+  asidePopperEffect,
+} from "@/core/helpers/config";
 
 const configStore = useConfigStore();
 
-const setMode = computed(() => {
-  return configStore.setDefaultConfigProperty("aside.backgroundColor", "#fff");
-});
-
-const isCollapse = ref<boolean>(true);
+const setCollapse = (): void => {
+  configStore.setDefaultConfigProperty("aside.collapse", !asideCollapse.value);
+};
 </script>
 
 <template>
-  <div id="asideCom">
+  <div id="asideCom" v-if="displayAside">
     <el-aside width="auto" class="h100%" bg-blueGray>
       <el-menu
         default-active="2"
         class="el-menu-vertical-demo h100%"
-        :collapse="isCollapse"
-        popper-effect="light"
-        :background-color="setMode"
-        text-color="#fff"
+        :text-color="asideColor"
+        :collapse="asideCollapse"
+        :background-color="asideBgc"
+        :popper-effect="asidePopperEffect"
       >
         <el-sub-menu index="1">
           <template #title>
@@ -38,7 +42,7 @@ const isCollapse = ref<boolean>(true);
           <template #title>Navigator Two</template>
         </el-menu-item>
         <el-menu-item>
-          <el-switch v-model="isCollapse" />
+          <button @click="setCollapse">切换</button>
         </el-menu-item>
       </el-menu>
     </el-aside>
