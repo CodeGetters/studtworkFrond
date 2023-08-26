@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { reactive, ref } from "vue";
+import { toggleDark } from "@/core/utils/themeAnimation";
 import type { FormInstance, FormRules } from "element-plus";
 
 const registerForm = reactive({
@@ -54,24 +55,16 @@ const rules = reactive<FormRules<typeof registerForm>>({
 
 <template>
   <!--registration::begin-->
-  <div class="register w74% h70% px13% py13% relative">
-    <div class="form-title font-600 text-center">注册</div>
+  <div class="register w74% h70% px13% py8% relative">
+    <div class="font-600 text-center text-30px">注册</div>
     <!--From::begin-->
     <el-form
       ref="registerFormRef"
       :model="registerForm"
       :rules="rules"
       status-icon
-      class="mt7%"
+      class="mt4% text-24px font-600"
       label-position="top"
-      style="
-        color: var(--2, #031f47);
-
-        font-size: 24px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 0px;
-      "
     >
       <el-form-item label="账号或用户名" class="form-item" prop="username">
         <el-input
@@ -108,29 +101,38 @@ const rules = reactive<FormRules<typeof registerForm>>({
         </button>
       </el-form-item>
     </el-form>
+    <div class="config-btn flex flex-row w15% justify-around" absolute>
+      <div i-iconoir:translate class="btn dark:text-black" />
+
+      <div
+        i-carbon-sun
+        dark:i-carbon-moon
+        class="btn dark:text-black"
+        @click="toggleDark"
+      />
+    </div>
   </div>
   <!--registerFrom::end-->
 </template>
 
 <style scoped lang="scss">
-.font-600 {
-  font-size: 35px;
-  // font-family: Cascadia Code;
-}
+.config-btn {
+  position: absolute;
+  margin-left: 65%;
 
-.submitButton {
-  margin-top: 40px;
-  transition: all 0.3s ease;
-  background: linear-gradient(135deg, #38a7f8 24.58%, #5074f5 100%), #031f47;
-}
+  .form-item {
+    height: 44%;
+    font-size: 24px;
+  }
 
-.submitButton:hover {
-  background: linear-gradient(135deg, #6fbaef 24.58%, #748eed 100%), #031f47;
-}
+  .submitButton {
+    transition: all 0.3s ease;
+  }
 
-.form-item {
-  height: 44%;
-  font-size: 24px;
-  font-style: normal;
+  .btn {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+  }
 }
 </style>

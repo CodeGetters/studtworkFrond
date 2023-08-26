@@ -37,7 +37,7 @@ import logo from "/favicon.svg";
       <!-- right::end -->
     </div>
     <div
-      class="bottom-3% absolute flex flex-col text-#007fdf items-center select-none lg:text-18px xs:text-10px"
+      class="bottom-3% absolute flex flex-col text-#007fdf items-center select-none lg:text-18px xs:text-10px .dark:text-#fff"
     >
       <div>
         <a href="javascript:;"><span>隐私内容</span></a> |<a
@@ -54,6 +54,7 @@ import logo from "/favicon.svg";
 <style lang="scss" scoped>
 #loginPage {
   padding: 0% 13%;
+  position: relative;
 
   .desc {
     margin-left: 10px;
@@ -64,9 +65,7 @@ import logo from "/favicon.svg";
     background-image: linear-gradient(to right, #38a7f8 24.58%, #5074f5);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-clip: text; // 添加标准属性
+    background-clip: text;
   }
-
-  position: relative;
 }
 </style>
