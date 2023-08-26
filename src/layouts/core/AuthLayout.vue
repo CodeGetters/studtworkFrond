@@ -66,8 +66,7 @@ import logo from "/favicon.svg";
     -webkit-text-fill-color: transparent;
     background-clip: text; // 添加标准属性
   }
-=======
-  position: relative;
 
+  position: relative;
 }
 </style>
