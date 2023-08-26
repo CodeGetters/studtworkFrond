@@ -1,10 +1,6 @@
 <script lang="ts" setup>
 import { reactive, ref } from "vue";
-import { toggleDark } from "@/core/utils/themeAnimation";
 import type { FormInstance, FormRules } from "element-plus";
-import { useRouter } from "vue-router";
-
-const router = useRouter();
 
 const registerForm = reactive({
   username: "",
@@ -34,7 +30,7 @@ const validatePass = (rule, value, callback) => {
   }
 };
 
-const validatePassword = (rule: any, value: string, callback: Function) => {
+const validatePassword = (rule, value, callback) => {
   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,14}$/;
   if (!passwordRegex.test(value)) {
     callback(new Error("密码必须为6-14位大小写字母数字混合"));
@@ -54,21 +50,6 @@ const rules = reactive<FormRules<typeof registerForm>>({
     { validator: validatePassword, trigger: "blur", required: true },
   ],
 });
-
-const submitAccount = (formEl: FormInstance | undefined) => {
-  if (!formEl) return;
-  formEl.validate((valid) => {
-    if (valid) {
-      console.log("submit!");
-      router.push({
-        path: "/",
-      });
-    } else {
-      console.log("error submit!");
-      return false;
-    }
-  });
-};
 </script>
 
 <template>
