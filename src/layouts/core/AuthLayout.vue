@@ -16,7 +16,8 @@ import logo from "/favicon.svg";
             <div class="h100% w31% mr-2%">
               <img :src="logo" alt="logo" class="w100% h100%" />
             </div>
-            <span class="w67% h100% flex items-center text-38px italic"
+            <span
+              class="gradient-text w67% h100% flex items-center text-35px italic"
               >StudTWork</span
             >
           </div>
@@ -41,5 +42,17 @@ import logo from "/favicon.svg";
 <style lang="scss" scoped>
 #loginPage {
   padding: 0% 13%;
+
+  .desc {
+    margin-left: 10px;
+  }
+
+  .gradient-text {
+    background-color: transparent;
+    background-image: linear-gradient(to right, #38a7f8 24.58%, #5074f5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text; // 添加标准属性
+  }
 }
 </style>

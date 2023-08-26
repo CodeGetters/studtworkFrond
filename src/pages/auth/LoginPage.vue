@@ -95,7 +95,7 @@ const submitAccount = (formEl: FormInstance | undefined) => {
 
     <div class="w100% flex flex-row justify-between">
       <span class="text-#A5AFBD">忘记密码</span>
-      <router-link to="/" class="text-#A5AFBD">
+      <router-link to="/sign-up" class="text-#A5AFBD">
         没有账号，<span text="#4E7AF6">去注册</span>
       </router-link>
     </div>
