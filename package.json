@@ -30,7 +30,9 @@
   },
   "dependencies": {
     "@vueuse/core": "^10.3.0",
+    "apexcharts": "^3.42.0",
     "axios": "^1.4.0",
+    "echarts": "^5.4.3",
     "element-plus": "^2.3.9",
     "normalize.css": "^8.0.1",
     "nprogress": "^0.2.0",
