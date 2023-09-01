@@ -14,8 +14,8 @@ import { asideTopLayout, mainBgc } from "@/core/helpers/config";
       <el-container h92vh>
         <AsideCom />
         <el-container>
-          <el-main>
-            <router-view :style="`background-color${mainBgc}`" />
+          <el-main :style="`background-color: ${mainBgc};`">
+            <router-view />
           </el-main>
         </el-container>
       </el-container>
@@ -29,8 +29,8 @@ import { asideTopLayout, mainBgc } from "@/core/helpers/config";
           <el-header height="auto">
             <HeaderCom />
           </el-header>
-          <el-main>
-            <router-view :style="`background-color${mainBgc}`" />
+          <el-main :style="`background-color: ${mainBgc};`">
+            <router-view />
           </el-main>
         </el-container>
       </el-container>

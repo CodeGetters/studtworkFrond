@@ -104,6 +104,7 @@ const submitAccount = (formEl: FormInstance | undefined) => {
       type="submit"
       ref="submitButton"
       class="submitButton w100% lg:mt-30px xs:mt-40px h40px rounded-50px cursor-pointer text-#fff"
+      @click="router.push({ path: '/dashboard' })"
     >
       <span> Continue </span>
       <span style="display: none"> Please wait... </span>

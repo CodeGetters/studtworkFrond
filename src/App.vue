@@ -3,8 +3,8 @@ import { onBeforeMount, onMounted, nextTick } from "vue";
 import "element-plus/theme-chalk/display.css";
 import { useConfigStore } from "./store/config";
 import { useBodyStore } from "./store/body";
-const bodyStore = useBodyStore();
 
+const bodyStore = useBodyStore();
 const configStore = useConfigStore();
 
 onBeforeMount(() => {

@@ -21,7 +21,7 @@ const setCollapse = (): void => {
     <el-aside width="auto" class="h100%">
       <el-menu
         default-active="2"
-        class="el-menu-vertical-demo h100%"
+        class="h100% relative"
         :text-color="asideColor"
         :collapse="asideCollapse"
         :background-color="asideBgc"
@@ -30,7 +30,7 @@ const setCollapse = (): void => {
         <el-sub-menu index="1">
           <template #title>
             <el-icon><location /></el-icon>
-            <span>Navigator One</span>
+            <span>分析看板</span>
           </template>
           <el-menu-item-group>
             <el-menu-item index="1-1">item one</el-menu-item>
@@ -41,15 +41,32 @@ const setCollapse = (): void => {
           <el-icon><icon-menu /></el-icon>
           <template #title>Navigator Two</template>
         </el-menu-item>
-        <el-menu-item>
-          <button @click="setCollapse">切换</button>
-        </el-menu-item>
+        <div absolute class="w100% top-96% flex justify-end">
+          <div
+            v-if="asideCollapse"
+            cursor-pointer
+            :style="`background-color: ${asideColor};`"
+            i-zondicons:align-left
+            @click="setCollapse"
+          />
+          <div
+            v-else
+            cursor-pointer
+            :style="`background-color: ${asideColor};`"
+            @click="setCollapse"
+            i-zondicons:align-right
+          />
+        </div>
       </el-menu>
     </el-aside>
   </div>
 </template>
 
 <style scoped lang="scss">
+.el-menu {
+  transition: all 0.3s ease;
+}
+
 :deep(.el-menu-item):hover {
   background-color: #d1e3fc;
 }

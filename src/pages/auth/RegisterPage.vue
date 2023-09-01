@@ -2,6 +2,9 @@
 import { reactive, ref } from "vue";
 import { toggleDark } from "@/core/utils/themeAnimation";
 import type { FormInstance, FormRules } from "element-plus";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 const registerForm = reactive({
   username: "",
@@ -63,7 +66,7 @@ const rules = reactive<FormRules<typeof registerForm>>({
       :model="registerForm"
       :rules="rules"
       status-icon
-      class="mt4% text-24px font-600"
+      class="mt2% text-24px font-600"
       label-position="top"
     >
       <el-form-item label="账号或用户名" class="form-item" prop="username">
@@ -89,12 +92,19 @@ const rules = reactive<FormRules<typeof registerForm>>({
           autocomplete="off"
         />
       </el-form-item>
+
+      <div class="w100% flex flex-row justify-between">
+        <router-link to="/sign-in" class="text-#A5AFBD text-14px">
+          已有账号，<span text="#4E7AF6">去登录</span>
+        </router-link>
+      </div>
       <!--from::end -->
       <el-form-item>
         <button
           type="submit"
           ref="submitButton"
           class="submitButton w100% mt-16px h40px rounded-50px cursor-pointer text-#fff"
+          @click="router.push({ path: '/dashboard' })"
         >
           <span> Continue </span>
           <span style="display: none"> Please wait... </span>
