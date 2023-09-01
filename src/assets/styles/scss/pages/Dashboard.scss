@@ -1,5 +1,6 @@
 #dashboardCom {
   .dataOverview {
+    background-color: #fff;
     .item {
       width: 16%;
       height: 100%;
@@ -8,11 +9,9 @@
       flex-direction: row;
       align-items: center;
       background-color: #f7f9fe;
-
       .icon {
         height: 66%;
         width: 32%;
-
         img {
           width: 100%;
           height: 100%;
@@ -35,9 +34,15 @@
     }
   }
 
-  .activeUser {
-    // max-height: 42%;
+  .chartRanking {
+    .articleActive {
+      background-color: #fff;
+    }
+  }
 
+  .activeUser {
+    background-color: #fff;
+    // max-height: 42%;
     .userList {
       max-height: 74%;
       .item {
@@ -80,8 +85,103 @@
     }
 
     button {
+      color: #fff;
       height: 32px;
       transform: translateX(-50%);
+      background-color: #007fdf;
+    }
+    button:hover {
+      background-color: #3795dd;
+    }
+  }
+
+  .visitChart {
+    .userActive {
+      background-color: #fff;
+    }
+    .mapActive {
+      background-color: #fff;
+      .cityRank {
+        .item {
+          font-size: 14px;
+          height: 14%;
+        }
+      }
+    }
+  }
+
+  .notice {
+    background-color: #fff;
+
+    a {
+      color: #165dff;
+    }
+    .item {
+      margin-bottom: 7px;
+
+      .tag {
+        font-size: 12px;
+        margin-right: 4px;
+        padding: 0 8px;
+        color: #f77234;
+        background-color: #fff3e8;
+        font-weight: 600;
+      }
+      span {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.dark #dashboardCom {
+  .dataOverview {
+    background-color: #fff;
+    .item {
+      background-color: #f7f9fe;
+    }
+  }
+
+  .chartRanking {
+    .articleActive {
+      background-color: #fff;
+    }
+  }
+
+  .activeUser {
+    background-color: #fff;
+
+    .userList {
+      .data {
+        color: #708099;
+      }
+    }
+    button {
+      background-color: #3795dd;
+    }
+  }
+
+  .visitChart {
+    .userActive {
+      background-color: #fff;
+    }
+    .mapActive {
+      background-color: #fff;
+    }
+  }
+
+  .notice {
+    background-color: #fff;
+
+    a {
+      color: #165dff;
+    }
+
+    .item {
+      .tag {
+        color: #f77234;
+        background-color: #fff3e8;
+      }
     }
   }
 }

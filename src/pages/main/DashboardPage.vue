@@ -6,7 +6,7 @@ import avatar from "@/assets/images/avatar.png";
 import reader from "@/assets/images/readers.png";
 import china from "@/assets/json/chinaOfMap.json";
 import type { ECOption } from "@/core/utils/chart";
-import { GeoJSONSourceInput } from "echarts/types/src/coord/geo/geoTypes";
+import type { GeoJSONSourceInput } from "echarts/types/src/coord/geo/geoTypes";
 
 const tableData = [
   {
@@ -112,6 +112,9 @@ const initLineBar = () => {
         color: "#031F47",
         fontFamily: "LXGWWenKai-Light",
       },
+    },
+    tooltip: {
+      trigger: "item",
     },
     xAxis: {
       type: "category",
@@ -345,7 +348,7 @@ onMounted(() => {
     <div class="main w78% mr2% h100%">
       <!-- 137px -->
       <!-- 869 -->
-      <div class="dataOverview h16% bg-#fff flex flex-row p2%">
+      <div class="dataOverview h16% flex flex-row p2%">
         <div class="item">
           <div class="icon">
             <img :src="reader" alt="" />
@@ -396,7 +399,7 @@ onMounted(() => {
       <!-- begin::chartRanking -->
       <div class="chartRanking h78% w100% flex flex-row mt-6%">
         <!-- begin::articleActive -->
-        <div class="articleActive h100% w41% mr7% py3% px4% bg-#fff">
+        <div class="articleActive h100% w41% mr7% py3% px4%">
           <div flex flex-row justify-between>
             <h1 text-16px>文章活跃度</h1>
             <router-link to="">查看更多</router-link>
@@ -412,11 +415,12 @@ onMounted(() => {
         </div>
         <!-- end::articleActive -->
 
+        <!-- begin::visitChart -->
         <div class="visitChart flex flex-col w51%">
-          <div class="userActive h44% mb6% bg-#fff p2%">
+          <div class="userActive h44% mb6% p2%">
             <div id="pageView" :style="{ width: '100%', height: '100%' }"></div>
           </div>
-          <div class="mapActive h50% w100% flex flex-row bg-#fff">
+          <div class="mapActive h50% w100% flex flex-row">
             <div class="left w45% py4% pl2% mr5%">
               <div
                 id="chinaMap"
@@ -455,6 +459,7 @@ onMounted(() => {
             </div>
           </div>
         </div>
+        <!-- end::visitChart -->
       </div>
       <!-- end::chartRanking -->
     </div>
@@ -463,7 +468,7 @@ onMounted(() => {
     <!-- begin::aside -->
     <div class="aside w20%">
       <!-- begin::activeUser -->
-      <div class="activeUser bg-#fff py5% px2%">
+      <div class="activeUser py5% px2%">
         <h1 class="text-16px px24px">活跃用户排行</h1>
 
         <!-- begin::userList -->
@@ -536,25 +541,21 @@ onMounted(() => {
         </div>
         <!-- end:userList -->
 
-        <button
-          class="text-#fff py5px px16px bg-#007fdf rounded-4px relative left-50%"
-        >
+        <button class="py5px px16px rounded-4px relative left-50%">
           查看全部排名
         </button>
       </div>
       <!-- end::activeUser -->
 
       <!-- begin::notice -->
-      <div class="notice mt5% flex flex-col bg-#fff">
+      <div class="notice mt5% flex flex-col">
         <div class="w100% h40%">
           <img :src="image" alt="" class="w100% h100%" />
         </div>
         <div class="py7% px6%">
           <div flex justify-between>
             <span font-semibold text-16px>公告</span>
-            <router-link to="" class="text-#165DFF text-14px"
-              >查看更多</router-link
-            >
+            <router-link to="" class="text-14px">查看更多</router-link>
           </div>
           <div class="w92% px4% mt5%">
             <div class="item">
@@ -585,29 +586,3 @@ onMounted(() => {
     <!-- end::aside -->
   </div>
 </template>
-
-<style lang="scss" scoped>
-.notice {
-  .item {
-    margin-bottom: 7px;
-
-    .tag {
-      font-size: 12px;
-      margin-right: 4px;
-      padding: 0 8px;
-      color: #f77234;
-      background-color: #fff3e8;
-      font-weight: 600;
-    }
-    span {
-      font-size: 14px;
-    }
-  }
-}
-.cityRank {
-  .item {
-    font-size: 14px;
-    height: 14%;
-  }
-}
-</style>
