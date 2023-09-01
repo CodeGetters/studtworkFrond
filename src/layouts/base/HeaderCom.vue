@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { toggleDark } from "@/core/utils/themeAnimation";
 import { displayHeader, headerBgc } from "@/core/helpers/config";
+import avatar from "@/assets/images/avatar.png";
 </script>
 
 <template>
@@ -19,7 +20,7 @@ import { displayHeader, headerBgc } from "@/core/helpers/config";
       <div class="text-16px italic font-extrabold">StudTWork</div>
     </div>
     <div
-      class="iconList flex flex-row lg:w18% lg:pr20px xs:w100% xs:justify-around"
+      class="iconList flex flex-row lg:w24% lg:pr20px xs:w100% xs:justify-around"
     >
       <div class="item">
         <div i-ic:baseline-search />
@@ -35,6 +36,14 @@ import { displayHeader, headerBgc } from "@/core/helpers/config";
       </div>
       <div class="item">
         <div i-ic:outline-settings />
+      </div>
+      <div
+        class="avatarCon hidden-xs-only flex flex-row bg-#f2f3f5 rounded-50px items-center whitespace-nowrap"
+      >
+        <div class="nickName m6px">张三李四啊xxx</div>
+        <div class="avatar">
+          <img :src="avatar" alt="" />
+        </div>
       </div>
     </div>
   </div>
