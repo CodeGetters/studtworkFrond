@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import reader from "@/assets/images/readers.png";
-import avatar from "@/assets/images/avatar.png";
-import image from "@/assets/images/image.png";
-
 import { onMounted } from "vue";
+import { echarts } from "@/core/utils/chart";
+import image from "@/assets/images/image.png";
+import avatar from "@/assets/images/avatar.png";
+import reader from "@/assets/images/readers.png";
+import china from "@/assets/json/chinaOfMap.json";
+import type { ECOption } from "@/core/utils/chart";
+import { GeoJSONSourceInput } from "echarts/types/src/coord/geo/geoTypes";
 
 const tableData = [
   {
@@ -98,9 +101,6 @@ const tableData = [
   },
 ];
 
-import { echarts } from "@/core/utils/chart";
-import type { ECOption } from "@/core/utils/chart";
-
 const initLineBar = () => {
   let myChart = echarts.init(document.getElementById("pageView")!);
 
@@ -142,8 +142,200 @@ const initLineBar = () => {
   };
   myChart.setOption(option);
 };
+
+const initMap = () => {
+  // https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json
+  let myChart = echarts.init(document.getElementById("chinaMap")!);
+
+  echarts.registerMap("china", china as GeoJSONSourceInput); // 注册地图
+
+  let option: ECOption = {
+    title: {
+      text: "访客来源-城市",
+      textStyle: {
+        fontSize: 20,
+        color: "#031F47",
+        fontFamily: "LXGWWenKai-Light",
+      },
+    },
+    series: [
+      {
+        type: "map",
+        map: "china", // 引入地图数据
+        data: [
+          {
+            name: "北京市",
+            value: 21,
+          },
+          {
+            name: "天津市",
+            value: 12,
+          },
+          {
+            name: "上海市",
+            value: 99,
+          },
+          {
+            name: "重庆市",
+            value: 98,
+          },
+          {
+            name: "河北省",
+            value: 99,
+          },
+          {
+            name: "河南省",
+            value: 29,
+          },
+          {
+            name: "云南省",
+            value: 79,
+          },
+          {
+            name: "辽宁省",
+            value: 38,
+          },
+          {
+            name: "黑龙江省",
+            value: 4,
+          },
+          {
+            name: "湖南省",
+            value: 32,
+          },
+          {
+            name: "安徽省",
+            value: 84,
+          },
+          {
+            name: "山东省",
+            value: 72,
+          },
+          {
+            name: "新疆维吾尔自治区",
+            value: 99,
+          },
+          {
+            name: "江苏省",
+            value: 70,
+          },
+          {
+            name: "浙江省",
+            value: 85,
+          },
+          {
+            name: "江西省",
+            value: 11,
+          },
+          {
+            name: "湖北省",
+            value: 62,
+          },
+          {
+            name: "广西壮族自治区",
+            value: 13,
+          },
+          {
+            name: "甘肃省",
+            value: 74,
+          },
+          {
+            name: "山西省",
+            value: 78,
+          },
+          {
+            name: "内蒙古自治区",
+            value: 74,
+          },
+          {
+            name: "陕西省",
+            value: 40,
+          },
+          {
+            name: "吉林省",
+            value: 9,
+          },
+          {
+            name: "福建省",
+            value: 90,
+          },
+          {
+            name: "贵州省",
+            value: 57,
+          },
+          {
+            name: "广东省",
+            value: 6,
+          },
+          {
+            name: "青海省",
+            value: 52,
+          },
+          {
+            name: "西藏自治区",
+            value: 10,
+          },
+          {
+            name: "四川省",
+            value: 98,
+          },
+          {
+            name: "宁夏回族自治区",
+            value: 11,
+          },
+          {
+            name: "海南省",
+            value: 25,
+          },
+          {
+            name: "台湾省",
+            value: 86,
+          },
+          {
+            name: "香港特别行政区",
+            value: 8,
+          },
+          {
+            name: "澳门特别行政区",
+            value: 50,
+          },
+        ],
+      },
+    ],
+    tooltip: {
+      trigger: "item",
+    },
+    // 视觉映射
+    visualMap: {
+      left: "right",
+      min: 0,
+      max: 100,
+      inRange: {
+        color: [
+          "#313695",
+          "#4575b4",
+          "#74add1",
+          "#abd9e9",
+          "#e0f3f8",
+          "#ffffbf",
+          "#fee090",
+          "#fdae61",
+          "#f46d43",
+          "#d73027",
+          "#a50026",
+        ],
+      },
+      text: ["High", "Low"],
+      calculable: true,
+    },
+  };
+
+  myChart.setOption(option);
+};
+
 onMounted(() => {
   initLineBar();
+  initMap();
 });
 </script>
 
@@ -224,7 +416,44 @@ onMounted(() => {
           <div class="userActive h44% mb6% bg-#fff p2%">
             <div id="pageView" :style="{ width: '100%', height: '100%' }"></div>
           </div>
-          <div class="mapActive h50%">访客来源</div>
+          <div class="mapActive h50% w100% flex flex-row bg-#fff">
+            <div class="left w45% py4% pl2% mr5%">
+              <div
+                id="chinaMap"
+                :style="{ width: '100%', height: '100%' }"
+              ></div>
+            </div>
+            <div class="cityRank w50% py4% pr2%">
+              <div class="item w100%">
+                <div>天津：18.8%</div>
+                <el-progress :percentage="18.8" :show-text="false" />
+              </div>
+              <div class="item w100%">
+                <div>天津：18.8%</div>
+                <el-progress :percentage="18.8" :show-text="false" />
+              </div>
+              <div class="item w100%">
+                <div>天津：18.8%</div>
+                <el-progress :percentage="18.8" :show-text="false" />
+              </div>
+              <div class="item w100%">
+                <div>天津：18.8%</div>
+                <el-progress :percentage="18.8" :show-text="false" />
+              </div>
+              <div class="item w100%">
+                <div>天津：18.8%</div>
+                <el-progress :percentage="18.8" :show-text="false" />
+              </div>
+              <div class="item w100%">
+                <div>天津：18.8%</div>
+                <el-progress :percentage="18.8" :show-text="false" />
+              </div>
+              <div class="item w100%">
+                <div>天津：18.8%</div>
+                <el-progress :percentage="18.8" :show-text="false" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <!-- end::chartRanking -->
@@ -373,6 +602,12 @@ onMounted(() => {
     span {
       font-size: 14px;
     }
+  }
+}
+.cityRank {
+  .item {
+    font-size: 14px;
+    height: 14%;
   }
 }
 </style>
