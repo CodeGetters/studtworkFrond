@@ -3,6 +3,8 @@ import reader from "@/assets/images/readers.png";
 import avatar from "@/assets/images/avatar.png";
 import image from "@/assets/images/image.png";
 
+import { onMounted } from "vue";
+
 const tableData = [
   {
     ranking: "1",
@@ -95,6 +97,54 @@ const tableData = [
     add: "78.37%",
   },
 ];
+
+import { echarts } from "@/core/utils/chart";
+import type { ECOption } from "@/core/utils/chart";
+
+const initLineBar = () => {
+  let myChart = echarts.init(document.getElementById("pageView")!);
+
+  let option: ECOption = {
+    title: {
+      text: "月用户访问量",
+      textStyle: {
+        fontSize: 20,
+        color: "#031F47",
+        fontFamily: "LXGWWenKai-Light",
+      },
+    },
+    xAxis: {
+      type: "category",
+      data: [
+        "一月",
+        "二月",
+        "三月",
+        "四月",
+        "五月",
+        "六月",
+        "七月",
+        "八月",
+        "九月",
+        "十月",
+        "十一月",
+        "十二月",
+      ],
+    },
+    yAxis: {
+      type: "value",
+    },
+    series: [
+      {
+        data: [120, 121, 121, 231, 200, 150, 80, 70, 110, 130, 123, 232],
+        type: "bar",
+      },
+    ],
+  };
+  myChart.setOption(option);
+};
+onMounted(() => {
+  initLineBar();
+});
 </script>
 
 <template>
@@ -171,7 +221,9 @@ const tableData = [
         <!-- end::articleActive -->
 
         <div class="visitChart flex flex-col w51%">
-          <div class="userActive h44% mb6%">月用户访问量</div>
+          <div class="userActive h44% mb6% bg-#fff p2%">
+            <div id="pageView" :style="{ width: '100%', height: '100%' }"></div>
+          </div>
           <div class="mapActive h50%">访客来源</div>
         </div>
       </div>
