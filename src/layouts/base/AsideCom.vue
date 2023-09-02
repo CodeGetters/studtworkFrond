@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useConfigStore } from "@/store/config";
-import { House, List } from "@element-plus/icons-vue";
+import { List, Edit } from "@element-plus/icons-vue";
 import {
   asideBgc,
   asideColor,
@@ -29,7 +29,7 @@ const setCollapse = (): void => {
       >
         <router-link to="/dashboard">
           <el-menu-item index="1">
-            <el-icon><House /></el-icon>
+            <el-icon><div i-mdi:view-dashboard-outline /></el-icon>
             <template #title>数据面板</template>
           </el-menu-item>
         </router-link>
@@ -41,10 +41,22 @@ const setCollapse = (): void => {
         </router-link>
         <router-link to="/editArticle">
           <el-menu-item index="3">
-            <el-icon><List /></el-icon>
+            <el-icon><Edit /></el-icon>
             <template #title>创建文章</template>
           </el-menu-item>
         </router-link>
+        <el-sub-menu index="4">
+          <template #title>
+            <el-icon
+              ><div
+                i-streamline:ecology-science-erlenmeyer-flask-experiment-lab-flask-science-chemistry-solution
+            /></el-icon>
+            <span>实验内容</span>
+          </template>
+          <el-menu-item-group>
+            <el-menu-item index="1-1">item two</el-menu-item>
+          </el-menu-item-group>
+        </el-sub-menu>
         <div absolute class="w100% top-96% flex justify-end">
           <div
             v-if="asideCollapse"

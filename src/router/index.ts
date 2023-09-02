@@ -31,6 +31,13 @@ const routes: Array<RouteRecordRaw> = [
         },
         component: () => import("@/pages/main/EditArticle.vue"),
       },
+      {
+        path: "/viewArticle",
+        meta: {
+          pageTitle: "ViewArticle",
+        },
+        component: () => import("@/pages/main/ViewArticle.vue"),
+      },
     ],
   },
   {

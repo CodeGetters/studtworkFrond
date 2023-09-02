@@ -160,7 +160,10 @@ const tableData = ref([
         <template #default="scope">
           <el-tag class="mr10px" type="primary">修改文章信息</el-tag>
           <el-tag class="mr10px" type="primary">修改文章内容</el-tag>
-          <el-tag class="mr10px" type="primary">查看文章内容</el-tag>
+          <!-- TODO：传递文章参数 -->
+          <router-link to="/viewArticle">
+            <el-tag class="mr10px" type="primary">查看文章内容</el-tag>
+          </router-link>
           <el-tag
             type="primary"
             size="small"
