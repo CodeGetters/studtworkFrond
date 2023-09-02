@@ -36,7 +36,7 @@ watch(
             v-loading="loading"
             :style="`background-color: ${mainBgc};`"
           >
-            <router-view />
+            <router-view class="w100% h100%" />
           </el-main>
         </el-container>
       </el-container>
@@ -55,7 +55,7 @@ watch(
             v-loading="loading"
             :style="`background-color: ${mainBgc};`"
           >
-            <router-view />
+            <router-view class="w100% h100%" />
           </el-main>
         </el-container>
       </el-container>

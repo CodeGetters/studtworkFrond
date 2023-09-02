@@ -29,6 +29,8 @@
     }
   },
   "dependencies": {
+    "@bytemd/plugin-gfm": "^1.21.0",
+    "@bytemd/vue-next": "^1.21.0",
     "@vueuse/core": "^10.4.1",
     "apexcharts": "^3.42.0",
     "axios": "^1.5.0",

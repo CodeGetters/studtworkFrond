@@ -39,6 +39,12 @@ const setCollapse = (): void => {
             <template #title>文章列表</template>
           </el-menu-item>
         </router-link>
+        <router-link to="/editArticle">
+          <el-menu-item index="3">
+            <el-icon><List /></el-icon>
+            <template #title>创建文章</template>
+          </el-menu-item>
+        </router-link>
         <div absolute class="w100% top-96% flex justify-end">
           <div
             v-if="asideCollapse"

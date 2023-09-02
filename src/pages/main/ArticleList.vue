@@ -151,22 +151,23 @@ const tableData = ref([
 <template>
   <div id="articleList">
     <el-table :data="tableData" height="850" style="width: 100%">
-      <el-table-column prop="date" label="排序" width="180" />
-      <el-table-column prop="name" label="Name" width="180" />
-      <el-table-column prop="address" label="创建时间" />
+      <el-table-column prop="date" label="id" width="180" />
+      <el-table-column prop="name" label="文章名" width="180" />
+      <el-table-column prop="address" label="阅读量" />
+      <el-table-column prop="address" label="发布时间" />
       <el-table-column prop="address" label="最后一次时间" />
-      <el-table-column label="Operations">
+      <el-table-column label="操作" width="450">
         <template #default="scope">
-          <el-button link type="primary">Detail</el-button>
-          <el-button link type="primary">Edit</el-button>
-          <el-button
-            link
+          <el-tag class="mr10px" type="primary">修改文章信息</el-tag>
+          <el-tag class="mr10px" type="primary">修改文章内容</el-tag>
+          <el-tag class="mr10px" type="primary">查看文章内容</el-tag>
+          <el-tag
             type="primary"
             size="small"
             @click.prevent="deleteRow(scope.$index)"
           >
-            Remove
-          </el-button>
+            删除文章
+          </el-tag>
         </template>
       </el-table-column>
     </el-table>
