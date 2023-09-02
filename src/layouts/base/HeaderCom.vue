@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { ElMessageBox } from "element-plus";
 import avatar from "@/assets/images/avatar.png";
 import type { DropdownInstance } from "element-plus";
 import { toggleDark } from "@/core/utils/themeAnimation";
@@ -9,12 +8,6 @@ import { displayHeader, headerBgc } from "@/core/helpers/config";
 const dropdown1 = ref<DropdownInstance>();
 
 const dialogVisible = ref(false);
-
-const handleClose = (done: () => void) => {
-  ElMessageBox.confirm("Are you sure to close this dialog?").then(() => {
-    done();
-  });
-};
 
 function showClick() {
   if (!dropdown1.value) return;
@@ -38,7 +31,9 @@ function showClick() {
       <div class="text-16px italic font-extrabold">StudTWork</div>
     </div>
     <div
-      class="iconList flex flex-row lg:w24% lg:pr20px xs:w100% xs:justify-around"
+      class="iconList flex flex-row"
+      lg="w26% pr20px"
+      xs="w100% justify-around"
     >
       <div class="item">
         <div i-ic:baseline-search />
@@ -82,12 +77,7 @@ function showClick() {
         </template>
       </el-dropdown>
 
-      <el-dialog
-        v-model="dialogVisible"
-        title="Tips"
-        width="30%"
-        :before-close="handleClose"
-      >
+      <el-dialog v-model="dialogVisible" title="设置" width="30%">
         <span>This is a message</span>
         <template #footer>
           <span class="dialog-footer">
