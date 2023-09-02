@@ -1,7 +1,24 @@
 <script setup lang="ts">
+import { ref, watch } from "vue";
+import { useRouter } from "vue-router";
 import HeaderCom from "@/layouts/base/HeaderCom.vue";
 import AsideCom from "@/layouts/base/AsideCom.vue";
 import { asideTopLayout, mainBgc } from "@/core/helpers/config";
+
+const router = useRouter();
+const loading = ref<boolean>(false);
+
+watch(
+  () => router.currentRoute.value.path,
+  (newValue, oldValue) => {
+    setTimeout(() => {
+      loading.value = false;
+    }, 1000);
+    loading.value = true;
+    console.log(`router address changed from ${oldValue} to ${newValue}`);
+  },
+  { immediate: true },
+);
 </script>
 
 <template>
@@ -14,7 +31,11 @@ import { asideTopLayout, mainBgc } from "@/core/helpers/config";
       <el-container h92vh>
         <AsideCom />
         <el-container>
-          <el-main :style="`background-color: ${mainBgc};`">
+          <el-main
+            element-loading-text="Loading..."
+            v-loading="loading"
+            :style="`background-color: ${mainBgc};`"
+          >
             <router-view />
           </el-main>
         </el-container>
@@ -29,7 +50,11 @@ import { asideTopLayout, mainBgc } from "@/core/helpers/config";
           <el-header height="auto">
             <HeaderCom />
           </el-header>
-          <el-main :style="`background-color: ${mainBgc};`">
+          <el-main
+            element-loading-text="Loading..."
+            v-loading="loading"
+            :style="`background-color: ${mainBgc};`"
+          >
             <router-view />
           </el-main>
         </el-container>

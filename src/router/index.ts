@@ -17,6 +17,13 @@ const routes: Array<RouteRecordRaw> = [
         },
         component: () => import("@/pages/main/DashboardPage.vue"),
       },
+      {
+        path: "/articleList",
+        meta: {
+          pageTitle: "ArticleList",
+        },
+        component: () => import("@/pages/main/ArticleList.vue"),
+      },
     ],
   },
   {
@@ -77,7 +84,6 @@ const router: Router = createRouter(option);
 
 router.beforeEach((to) => {
   const configStore = useConfigStore();
-
   start();
   document.title = `${to.meta.pageTitle} - ${import.meta.env.VITE_APP_NAME}`;
   configStore.resetDefaultConfig();
