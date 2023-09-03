@@ -346,7 +346,7 @@ onMounted(() => {
   <div id="dashboardCom" flex lg:flex-row xs:flex-col>
     <!-- begin::main -->
     <div class="main" lg="w78% mr2% h100%" xs="w100%">
-      <div class="dataOverview p2%" lg="h16% flex flex-row">
+      <div class="dataOverview p2%" lg="h12% flex flex-row">
         <div class="item">
           <div class="icon">
             <img :src="reader" alt="" />
@@ -395,9 +395,9 @@ onMounted(() => {
       </div>
 
       <!-- begin::chartRanking -->
-      <div class="chartRanking mt-6%" lg="h78% w100% flex flex-row">
+      <div class="chartRanking mt-2%" lg="h78% w100% flex flex-row">
         <!-- begin::articleActive -->
-        <div class="articleActive" lg="h100% w41% mr7% py3% px4%" xs="w100%">
+        <div class="articleActive" lg="w41% mr7% py3% px4%" xs="w100%">
           <div flex flex-row justify-between xs="p4%" lg="p0">
             <h1 text-16px>文章活跃度</h1>
             <router-link to="">查看更多</router-link>
