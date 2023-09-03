@@ -29,13 +29,17 @@
     }
   },
   "dependencies": {
+    "@bytemd/plugin-frontmatter": "^1.21.0",
+    "@bytemd/plugin-gemoji": "^1.21.0",
     "@bytemd/plugin-gfm": "^1.21.0",
+    "@bytemd/plugin-highlight": "^1.21.0",
     "@bytemd/vue-next": "^1.21.0",
     "@vueuse/core": "^10.4.1",
     "apexcharts": "^3.42.0",
     "axios": "^1.5.0",
     "echarts": "^5.4.3",
     "element-plus": "^2.3.12",
+    "github-markdown-css": "^5.2.0",
     "normalize.css": "^8.0.1",
     "nprogress": "^0.2.0",
     "object-path": "^0.11.8",

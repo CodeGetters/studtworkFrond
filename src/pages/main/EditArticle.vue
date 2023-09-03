@@ -1,16 +1,24 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import gfm from "@bytemd/plugin-gfm";
-import en from "bytemd/locales/en.json";
 import { i18n } from "@/core/i18n/index";
 import { Editor } from "@bytemd/vue-next";
+
+import en from "bytemd/locales/en.json";
 import zh from "bytemd/locales/zh_Hans.json";
+
+import gfm from "@bytemd/plugin-gfm";
+import gemoji from "@bytemd/plugin-gemoji";
+import highlight from "@bytemd/plugin-highlight";
+import frontmatter from "@bytemd/plugin-frontmatter";
+
 import "bytemd/dist/index.css";
+import "github-markdown-css/github-markdown.css";
+import "highlight.js/styles/default.css";
 
+const articleTitle = ref<string>("");
 const articleValue = ref<string>("");
-const articleCon = ref<string>("");
 
-const plugins = [gfm()];
+const plugins = [gfm(), gemoji(), highlight(), frontmatter()];
 
 const handleChange = (val: string): void => {
   articleValue.value = val;
@@ -29,6 +37,14 @@ const changeLang = (): void => {
   }
 };
 
+// editor config link https://codemirror.net/5/doc/manual.html#config
+const config = {
+  lineNumbers: true,
+  scrollbarStyle: null,
+  spellcheck: true,
+  autofocus: true,
+};
+
 onMounted(() => {
   changeLang();
 });
@@ -39,9 +55,9 @@ onMounted(() => {
   <div id="editArticle" flex flex-col>
     <div class="articleInfo w100% h70px flex flex-row items-center bg-#fff">
       <el-input
-        v-model="articleCon"
+        v-model="articleTitle"
         maxlength="30"
-        placeholder="请输入文章内容"
+        placeholder="请输入文章名"
         show-word-limit
         type="text"
         class="h100%"
@@ -61,6 +77,8 @@ onMounted(() => {
         :plugins="plugins"
         @change="handleChange"
         :locale="lang"
+        placeholder="请在此处输入您的文章内容"
+        :editorConfig="config"
       />
     </div>
     <el-dialog v-model="dialogVisible" title="切换为富文本编辑器" width="30%">
@@ -78,6 +96,12 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
+.articleCenter {
+  :deep(.CodeMirror-gutter, .CodeMirror-linenumbers) {
+    width: 0 !important;
+  }
+}
+
 .articleInfo {
   :deep(.el-input__wrapper, .is-focus) {
     height: 100%;
