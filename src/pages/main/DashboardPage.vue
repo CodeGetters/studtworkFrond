@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
 import { echarts } from "@/core/utils/chart";
 import image from "@/assets/images/image.png";
 import avatar from "@/assets/images/avatar.png";
@@ -8,6 +8,21 @@ import china from "@/assets/json/chinaOfMap.json";
 import type { ECOption } from "@/core/utils/chart";
 import { tableStyle } from "@/core/utils/styleFunc";
 import type { GeoJSONSourceInput } from "echarts/types/src/coord/geo/geoTypes";
+import type { AxiosResponse } from "axios";
+
+import { getTheCat } from "@/core/api/other";
+import type { theCatType } from "@/@types/api";
+
+const catImg = ref<string>(image);
+
+/**
+ * 公告栏的图片，页面刷新后请求获取图片 url
+ */
+const carApi = async (): Promise<void> => {
+  const response: AxiosResponse<theCatType> = await getTheCat();
+
+  catImg.value = response.data[0].url;
+};
 
 const tableData = [
   {
@@ -340,6 +355,7 @@ const initMap = () => {
 onMounted(() => {
   initLineBar();
   initMap();
+  carApi();
 });
 </script>
 
@@ -560,7 +576,13 @@ onMounted(() => {
       <!-- begin::notice -->
       <div class="notice flex flex-col" lg="mt5%" xs="mt20px">
         <div class="w100% h40%">
-          <img :src="image" alt="" class="w100% h100%" />
+          <img
+            :src="catImg"
+            alt="catPic"
+            class="w100% h100% object-fill rounded-5px"
+            lg="max-w-346px max-h-194px"
+            xs="max-w-275px"
+          />
         </div>
         <div class="py7% px6%">
           <div flex justify-between>
