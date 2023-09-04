@@ -348,7 +348,7 @@ onMounted(() => {
     <!-- begin::main -->
     <div class="main" lg="w78% mr2% h100%" xs="w100%">
       <div class="dataOverview p2%" lg="h12% flex flex-row">
-        <div class="item">
+        <div class="item itemTrans">
           <div class="icon">
             <img :src="reader" alt="" />
           </div>
@@ -357,7 +357,7 @@ onMounted(() => {
             <div class="num">xxx</div>
           </div>
         </div>
-        <div class="item">
+        <div class="item itemTrans">
           <div class="icon">
             <img :src="reader" alt="" />
           </div>
@@ -366,7 +366,7 @@ onMounted(() => {
             <div class="num">xxx</div>
           </div>
         </div>
-        <div class="item">
+        <div class="item itemTrans">
           <div class="icon">
             <img :src="reader" alt="" />
           </div>
@@ -375,7 +375,7 @@ onMounted(() => {
             <div class="num">xxx</div>
           </div>
         </div>
-        <div class="item">
+        <div class="item itemTrans">
           <div class="icon">
             <img :src="reader" alt="" />
           </div>
@@ -384,7 +384,7 @@ onMounted(() => {
             <div class="num">xxx</div>
           </div>
         </div>
-        <div class="item">
+        <div class="item itemTrans">
           <div class="icon">
             <img :src="reader" alt="" />
           </div>
@@ -438,31 +438,31 @@ onMounted(() => {
               ></div>
             </div>
             <div class="cityRank" lg="w50% py4% pr2%" xs="w96% px2% py4%">
-              <div class="item w100%">
+              <div class="item itemTrans w100%">
                 <div>天津：18.8%</div>
                 <el-progress :percentage="18.8" :show-text="false" />
               </div>
-              <div class="item w100%">
+              <div class="item itemTrans w100%">
                 <div>天津：18.8%</div>
                 <el-progress :percentage="18.8" :show-text="false" />
               </div>
-              <div class="item w100%">
+              <div class="item itemTrans w100%">
                 <div>天津：18.8%</div>
                 <el-progress :percentage="18.8" :show-text="false" />
               </div>
-              <div class="item w100%">
+              <div class="item itemTrans w100%">
                 <div>天津：18.8%</div>
                 <el-progress :percentage="18.8" :show-text="false" />
               </div>
-              <div class="item w100%">
+              <div class="item itemTrans w100%">
                 <div>天津：18.8%</div>
                 <el-progress :percentage="18.8" :show-text="false" />
               </div>
-              <div class="item w100%">
+              <div class="item itemTrans w100%">
                 <div>天津：18.8%</div>
                 <el-progress :percentage="18.8" :show-text="false" />
               </div>
-              <div class="item w100%">
+              <div class="item itemTrans w100%">
                 <div>天津：18.8%</div>
                 <el-progress :percentage="18.8" :show-text="false" />
               </div>
@@ -483,7 +483,7 @@ onMounted(() => {
 
         <!-- begin::userList -->
         <div class="userList flex flex-col" lg="p3% mt0" xs="mt10px">
-          <div class="item">
+          <div class="item cursor-pointer itemTrans">
             <div class="avatar">
               <img :src="avatar" alt="avatar" />
             </div>
@@ -496,7 +496,7 @@ onMounted(() => {
               </div>
             </div>
           </div>
-          <div class="item">
+          <div class="item cursor-pointer itemTrans">
             <div class="avatar">
               <img :src="avatar" alt="avatar" />
             </div>
@@ -509,7 +509,7 @@ onMounted(() => {
               </div>
             </div>
           </div>
-          <div class="item">
+          <div class="item cursor-pointer itemTrans">
             <div class="avatar">
               <img :src="avatar" alt="avatar" />
             </div>
@@ -522,7 +522,7 @@ onMounted(() => {
               </div>
             </div>
           </div>
-          <div class="item">
+          <div class="item cursor-pointer itemTrans">
             <div class="avatar">
               <img :src="avatar" alt="avatar" />
             </div>
@@ -535,7 +535,7 @@ onMounted(() => {
               </div>
             </div>
           </div>
-          <div class="item">
+          <div class="item cursor-pointer itemTrans">
             <div class="avatar">
               <img :src="avatar" alt="avatar" />
             </div>
@@ -568,23 +568,23 @@ onMounted(() => {
             <router-link to="" class="text-14px">查看更多</router-link>
           </div>
           <div lg="w92% px4% mt5%">
-            <div class="item">
+            <div class="item cursor-pointer">
               <span class="tag">活动</span>
               <span>内容最新优惠活动</span>
             </div>
-            <div class="item">
+            <div class="item cursor-pointer">
               <span class="tag">消息</span>
               <span>新增内容尚未通过审核</span>
             </div>
-            <div class="item">
+            <div class="item cursor-pointer">
               <span class="tag">消息</span>
               <span>新增内容尚未通过审核</span>
             </div>
-            <div class="item">
+            <div class="item cursor-pointer">
               <span class="tag">消息</span>
               <span>新增内容尚未通过审核</span>
             </div>
-            <div class="item">
+            <div class="item cursor-pointer">
               <span class="tag">消息</span>
               <span>新增内容尚未通过审核</span>
             </div>
