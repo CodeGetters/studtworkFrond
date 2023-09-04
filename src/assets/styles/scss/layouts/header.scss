@@ -11,6 +11,10 @@
       margin-right: 0;
     }
   }
+
+  .avatarCon {
+    background-color: #f2f3f5;
+  }
 }
 
 .dark #headerCom {
@@ -28,5 +32,10 @@
     &:last-child {
       margin-right: 0;
     }
+  }
+
+  .avatarCon {
+    color: #fff;
+    background-color: #1f1f1f;
   }
 }

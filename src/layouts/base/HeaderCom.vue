@@ -5,13 +5,13 @@ import type { DropdownInstance } from "element-plus";
 import { toggleDark } from "@/core/utils/themeAnimation";
 import { displayHeader, headerBgc } from "@/core/helpers/config";
 
-const dropdown1 = ref<DropdownInstance>();
+const dropdown = ref<DropdownInstance>();
 
 const dialogVisible = ref(false);
 
 function showClick() {
-  if (!dropdown1.value) return;
-  dropdown1.value.handleOpen();
+  if (!dropdown.value) return;
+  dropdown.value.handleOpen();
 }
 </script>
 
@@ -52,12 +52,12 @@ function showClick() {
       </div>
 
       <el-dropdown
-        ref="dropdown1"
+        ref="dropdown"
         trigger="contextmenu"
         style="margin-right: 30px"
       >
         <div
-          class="avatarCon hidden-xs-only flex flex-row bg-#f2f3f5 rounded-50px items-center whitespace-nowrap cursor-pointer"
+          class="avatarCon hidden-xs-only flex flex-row rounded-50px items-center whitespace-nowrap cursor-pointer"
           @click="showClick"
         >
           <div class="nickName m6px">张三李四啊xxx</div>

@@ -110,7 +110,7 @@ const initLineBar = () => {
       text: "月用户访问量",
       textStyle: {
         fontSize: 20,
-        color: "#031F47",
+        color: "skyblue",
         fontFamily: "LXGWWenKai-Light",
       },
     },
@@ -158,7 +158,7 @@ const initMap = () => {
       text: "访客来源-城市",
       textStyle: {
         fontSize: 20,
-        color: "#031F47",
+        color: "skyblue",
         fontFamily: "LXGWWenKai-Light",
       },
     },
@@ -410,6 +410,7 @@ onMounted(() => {
               :header-cell-class-name="tableStyle"
               :cell-class-name="tableStyle"
               style="width: 100%"
+              :highlight-current-row="true"
             >
               <el-table-column prop="ranking" width="60" label="排名" />
               <el-table-column prop="title" label="标题" />
