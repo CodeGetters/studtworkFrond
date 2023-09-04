@@ -7,3 +7,30 @@ body {
 #app {
   min-width: 375px;
 }
+
+.el-table-style {
+  color: #000;
+  background-color: #fff;
+}
+
+.dark .el-table-style {
+  color: #eef5ff !important;
+  background-color: #1f1f1f !important;
+  border-style: #3b434e;
+}
+
+.itemTrans {
+  display: inline-block;
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  transition-duration: 0.3s;
+  transition-property: box-shadow, transform;
+}
+
+.itemTrans:hover,
+.itemTrans:focus,
+.itemTrans:active {
+  box-sizing: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  transform: scale(1.1);
+}

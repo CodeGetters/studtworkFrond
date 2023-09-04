@@ -20,7 +20,6 @@ interface Aside {
 
 interface MainLayout {
   asideTop: boolean;
-  backgroundColor: string;
 }
 
 interface defaultConfig {

@@ -1,10 +1,11 @@
 /// <reference types="vitest" />
 
-import { defineConfig, loadEnv } from "vite";
+import UnoCSS from "unocss/vite";
 import { resolve } from "node:path";
 import vue from "@vitejs/plugin-vue";
-import UnoCSS from "unocss/vite";
+import autoPrefix from "autoprefixer";
 import tsChecker from "vite-plugin-checker";
+import { defineConfig, loadEnv } from "vite";
 import devTools from "vite-plugin-vue-devtools";
 import autoImport from "unplugin-auto-import/vite";
 import viteCompression from "vite-plugin-compression";
@@ -87,5 +88,20 @@ export default ({ mode }) => {
         resolvers: [ElementPlusResolver()],
       }),
     ],
+    css: {
+      postcss: {
+        plugins: [
+          autoPrefix({
+            overrideBrowserslist: [
+              "Android 4.1",
+              "iOS 7.1",
+              "Chrome > 31",
+              "ff > 31",
+              "ie >= 8",
+            ],
+          }),
+        ],
+      },
+    },
   });
 };

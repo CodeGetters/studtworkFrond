@@ -2,7 +2,6 @@ import type defaultConfig from "./configType";
 const config: defaultConfig = {
   mainLayout: {
     asideTop: false,
-    backgroundColor: "#f7f8fa",
   },
   headers: {
     display: true,

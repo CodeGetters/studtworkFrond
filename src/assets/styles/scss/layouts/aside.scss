@@ -1,0 +1,19 @@
+#asideCom {
+  :deep(.el-menu) {
+    border-right: none;
+
+    .el-menu-item:hover {
+      background-color: #d1e3fc;
+    }
+  }
+
+  .el-menu-vertical:not(.el-menu--collapse) {
+    width: 150px;
+  }
+}
+
+.dark #asideCom {
+  :deep(.el-menu-item):hover {
+    background-color: #1f3a60;
+  }
+}

@@ -1,5 +1,10 @@
 import axios from "axios";
-import type { AxiosInstance } from "axios";
+
+import type {
+  AxiosInstance,
+  InternalAxiosRequestConfig,
+  AxiosResponse,
+} from "axios";
 
 import { start, done } from "@/core/utils/nprogress";
 
@@ -9,9 +14,9 @@ const service: AxiosInstance = axios.create({
   },
 });
 
-// 添加请求拦截器
+// 请求拦截器
 service.interceptors.request.use(
-  function (config) {
+  function (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig {
     start();
     return config;
   },
@@ -21,9 +26,9 @@ service.interceptors.request.use(
   },
 );
 
-// 添加响应拦截器
+// 响应拦截器
 service.interceptors.response.use(
-  function (response) {
+  function (response: AxiosResponse): AxiosResponse {
     done();
     return response;
   },

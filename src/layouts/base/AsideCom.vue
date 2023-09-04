@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useConfigStore } from "@/store/config";
-import { Menu as IconMenu, Location } from "@element-plus/icons-vue";
+import { List, Edit } from "@element-plus/icons-vue";
 import {
   asideBgc,
   asideColor,
@@ -20,27 +20,44 @@ const setCollapse = (): void => {
   <div id="asideCom" v-if="displayAside">
     <el-aside width="auto" class="h100%">
       <el-menu
-        default-active="2"
-        class="h100% relative"
+        default-active="1"
+        class="el-menu-vertical h100% relative"
         :text-color="asideColor"
         :collapse="asideCollapse"
         :background-color="asideBgc"
         :popper-effect="asidePopperEffect"
       >
-        <el-sub-menu index="1">
+        <router-link to="/dashboard">
+          <el-menu-item index="1">
+            <el-icon><div i-mdi:view-dashboard-outline /></el-icon>
+            <template #title>数据面板</template>
+          </el-menu-item>
+        </router-link>
+        <router-link to="/articleList">
+          <el-menu-item index="2">
+            <el-icon><List /></el-icon>
+            <template #title>文章列表</template>
+          </el-menu-item>
+        </router-link>
+        <router-link to="/editArticle">
+          <el-menu-item index="3">
+            <el-icon><Edit /></el-icon>
+            <template #title>创建文章</template>
+          </el-menu-item>
+        </router-link>
+        <el-sub-menu index="4">
           <template #title>
-            <el-icon><location /></el-icon>
-            <span>分析看板</span>
+            <el-icon>
+              <div
+                i-streamline:ecology-science-erlenmeyer-flask-experiment-lab-flask-science-chemistry-solution
+              />
+            </el-icon>
+            <span>实验内容</span>
           </template>
           <el-menu-item-group>
-            <el-menu-item index="1-1">item one</el-menu-item>
-            <el-menu-item index="1-2">item two</el-menu-item>
+            <el-menu-item index="1-1">xxxx</el-menu-item>
           </el-menu-item-group>
         </el-sub-menu>
-        <el-menu-item index="2">
-          <el-icon><icon-menu /></el-icon>
-          <template #title>Navigator Two</template>
-        </el-menu-item>
         <div absolute class="w100% top-96% flex justify-end">
           <div
             v-if="asideCollapse"
@@ -61,21 +78,3 @@ const setCollapse = (): void => {
     </el-aside>
   </div>
 </template>
-
-<style scoped lang="scss">
-.el-menu {
-  transition: all 0.3s ease;
-}
-
-:deep(.el-menu-item):hover {
-  background-color: #d1e3fc;
-}
-.dark #asideCom {
-  :deep(.el-menu) {
-    border-right: 1px solid #626262;
-  }
-  :deep(.el-menu-item):hover {
-    background-color: #1f3a60;
-  }
-}
-</style>

@@ -1,12 +1,28 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
 import { echarts } from "@/core/utils/chart";
 import image from "@/assets/images/image.png";
 import avatar from "@/assets/images/avatar.png";
 import reader from "@/assets/images/readers.png";
 import china from "@/assets/json/chinaOfMap.json";
 import type { ECOption } from "@/core/utils/chart";
+import { tableStyle } from "@/core/utils/styleFunc";
 import type { GeoJSONSourceInput } from "echarts/types/src/coord/geo/geoTypes";
+import type { AxiosResponse } from "axios";
+
+import { getTheCat } from "@/core/api/other";
+import type { theCatType } from "@/@types/api";
+
+const catImg = ref<string>(image);
+
+/**
+ * 公告栏的图片，页面刷新后请求获取图片 url
+ */
+const carApi = async (): Promise<void> => {
+  const response: AxiosResponse<theCatType> = await getTheCat();
+
+  catImg.value = response.data[0].url;
+};
 
 const tableData = [
   {
@@ -109,7 +125,7 @@ const initLineBar = () => {
       text: "月用户访问量",
       textStyle: {
         fontSize: 20,
-        color: "#031F47",
+        color: "skyblue",
         fontFamily: "LXGWWenKai-Light",
       },
     },
@@ -157,7 +173,7 @@ const initMap = () => {
       text: "访客来源-城市",
       textStyle: {
         fontSize: 20,
-        color: "#031F47",
+        color: "skyblue",
         fontFamily: "LXGWWenKai-Light",
       },
     },
@@ -339,17 +355,16 @@ const initMap = () => {
 onMounted(() => {
   initLineBar();
   initMap();
+  carApi();
 });
 </script>
 
 <template>
-  <div id="dashboardCom" flex flex-row>
+  <div id="dashboardCom" flex lg:flex-row xs:flex-col>
     <!-- begin::main -->
-    <div class="main w78% mr2% h100%">
-      <!-- 137px -->
-      <!-- 869 -->
-      <div class="dataOverview h16% flex flex-row p2%">
-        <div class="item">
+    <div class="main" lg="w78% mr2% h100%" xs="w100%">
+      <div class="dataOverview p2%" lg="h12% flex flex-row">
+        <div class="item itemTrans">
           <div class="icon">
             <img :src="reader" alt="" />
           </div>
@@ -358,7 +373,7 @@ onMounted(() => {
             <div class="num">xxx</div>
           </div>
         </div>
-        <div class="item">
+        <div class="item itemTrans">
           <div class="icon">
             <img :src="reader" alt="" />
           </div>
@@ -367,7 +382,7 @@ onMounted(() => {
             <div class="num">xxx</div>
           </div>
         </div>
-        <div class="item">
+        <div class="item itemTrans">
           <div class="icon">
             <img :src="reader" alt="" />
           </div>
@@ -376,7 +391,7 @@ onMounted(() => {
             <div class="num">xxx</div>
           </div>
         </div>
-        <div class="item">
+        <div class="item itemTrans">
           <div class="icon">
             <img :src="reader" alt="" />
           </div>
@@ -385,7 +400,7 @@ onMounted(() => {
             <div class="num">xxx</div>
           </div>
         </div>
-        <div class="item">
+        <div class="item itemTrans">
           <div class="icon">
             <img :src="reader" alt="" />
           </div>
@@ -397,16 +412,23 @@ onMounted(() => {
       </div>
 
       <!-- begin::chartRanking -->
-      <div class="chartRanking h78% w100% flex flex-row mt-6%">
+      <div class="chartRanking mt-2%" lg="h78% w100% flex flex-row">
         <!-- begin::articleActive -->
-        <div class="articleActive h100% w41% mr7% py3% px4%">
-          <div flex flex-row justify-between>
+        <div class="articleActive" lg="w41% mr7% py3% px4%" xs="w100%">
+          <div flex flex-row justify-between xs="p4%" lg="p0">
             <h1 text-16px>文章活跃度</h1>
             <router-link to="">查看更多</router-link>
           </div>
-          <div class="articleTable w100% h79% mt3%">
-            <el-table :data="tableData" height="500" style="width: 100%">
-              <el-table-column prop="ranking" label="排名" />
+          <div class="articleTable" lg="w100% h89% mt3%">
+            <el-table
+              :data="tableData"
+              height="500"
+              :header-cell-class-name="tableStyle"
+              :cell-class-name="tableStyle"
+              style="width: 100%"
+              :highlight-current-row="true"
+            >
+              <el-table-column prop="ranking" width="60" label="排名" />
               <el-table-column prop="title" label="标题" />
               <el-table-column prop="readers" label="浏览量" />
               <el-table-column prop="add" label="日增" />
@@ -416,43 +438,47 @@ onMounted(() => {
         <!-- end::articleActive -->
 
         <!-- begin::visitChart -->
-        <div class="visitChart flex flex-col w51%">
-          <div class="userActive h44% mb6% p2%">
+        <div class="visitChart" lg="flex flex-col w51%" xs="w100%">
+          <div class="userActive" lg="h44% mb6% p2% mt0" xs="h240px mt20px">
             <div id="pageView" :style="{ width: '100%', height: '100%' }"></div>
           </div>
-          <div class="mapActive h50% w100% flex flex-row">
-            <div class="left w45% py4% pl2% mr5%">
+          <div
+            class="mapActive flex"
+            lg="h50% w100% flex-row mt0px"
+            xs="mt20px flex-col"
+          >
+            <div class="left" lg="w45% py4% pl2% mr5%" xs="w100%">
               <div
                 id="chinaMap"
                 :style="{ width: '100%', height: '100%' }"
               ></div>
             </div>
-            <div class="cityRank w50% py4% pr2%">
-              <div class="item w100%">
+            <div class="cityRank" lg="w50% py4% pr2%" xs="w96% px2% py4%">
+              <div class="item itemTrans w100%">
                 <div>天津：18.8%</div>
                 <el-progress :percentage="18.8" :show-text="false" />
               </div>
-              <div class="item w100%">
+              <div class="item itemTrans w100%">
                 <div>天津：18.8%</div>
                 <el-progress :percentage="18.8" :show-text="false" />
               </div>
-              <div class="item w100%">
+              <div class="item itemTrans w100%">
                 <div>天津：18.8%</div>
                 <el-progress :percentage="18.8" :show-text="false" />
               </div>
-              <div class="item w100%">
+              <div class="item itemTrans w100%">
                 <div>天津：18.8%</div>
                 <el-progress :percentage="18.8" :show-text="false" />
               </div>
-              <div class="item w100%">
+              <div class="item itemTrans w100%">
                 <div>天津：18.8%</div>
                 <el-progress :percentage="18.8" :show-text="false" />
               </div>
-              <div class="item w100%">
+              <div class="item itemTrans w100%">
                 <div>天津：18.8%</div>
                 <el-progress :percentage="18.8" :show-text="false" />
               </div>
-              <div class="item w100%">
+              <div class="item itemTrans w100%">
                 <div>天津：18.8%</div>
                 <el-progress :percentage="18.8" :show-text="false" />
               </div>
@@ -466,14 +492,14 @@ onMounted(() => {
     <!-- end::main -->
 
     <!-- begin::aside -->
-    <div class="aside w20%">
+    <div class="aside" lg="w20%" xs="w100%">
       <!-- begin::activeUser -->
-      <div class="activeUser py5% px2%">
+      <div class="activeUser" lg="py5% px2% mt0" xs="mt20px py5% px2%">
         <h1 class="text-16px px24px">活跃用户排行</h1>
 
         <!-- begin::userList -->
-        <div class="userList flex flex-col p3%">
-          <div class="item">
+        <div class="userList flex flex-col" lg="p3% mt0" xs="mt10px">
+          <div class="item cursor-pointer itemTrans">
             <div class="avatar">
               <img :src="avatar" alt="avatar" />
             </div>
@@ -486,7 +512,7 @@ onMounted(() => {
               </div>
             </div>
           </div>
-          <div class="item">
+          <div class="item cursor-pointer itemTrans">
             <div class="avatar">
               <img :src="avatar" alt="avatar" />
             </div>
@@ -499,7 +525,7 @@ onMounted(() => {
               </div>
             </div>
           </div>
-          <div class="item">
+          <div class="item cursor-pointer itemTrans">
             <div class="avatar">
               <img :src="avatar" alt="avatar" />
             </div>
@@ -512,7 +538,7 @@ onMounted(() => {
               </div>
             </div>
           </div>
-          <div class="item">
+          <div class="item cursor-pointer itemTrans">
             <div class="avatar">
               <img :src="avatar" alt="avatar" />
             </div>
@@ -525,7 +551,7 @@ onMounted(() => {
               </div>
             </div>
           </div>
-          <div class="item">
+          <div class="item cursor-pointer itemTrans">
             <div class="avatar">
               <img :src="avatar" alt="avatar" />
             </div>
@@ -541,40 +567,46 @@ onMounted(() => {
         </div>
         <!-- end:userList -->
 
-        <button class="py5px px16px rounded-4px relative left-50%">
+        <button class="relative left-50% py5px px16px rounded-4px">
           查看全部排名
         </button>
       </div>
       <!-- end::activeUser -->
 
       <!-- begin::notice -->
-      <div class="notice mt5% flex flex-col">
+      <div class="notice flex flex-col" lg="mt5%" xs="mt20px">
         <div class="w100% h40%">
-          <img :src="image" alt="" class="w100% h100%" />
+          <img
+            :src="catImg"
+            alt="catPic"
+            class="w100% h100% object-fill rounded-5px"
+            lg="max-w-346px max-h-194px"
+            xs="max-w-275px"
+          />
         </div>
         <div class="py7% px6%">
           <div flex justify-between>
             <span font-semibold text-16px>公告</span>
             <router-link to="" class="text-14px">查看更多</router-link>
           </div>
-          <div class="w92% px4% mt5%">
-            <div class="item">
+          <div lg="w92% px4% mt5%">
+            <div class="item cursor-pointer">
               <span class="tag">活动</span>
               <span>内容最新优惠活动</span>
             </div>
-            <div class="item">
+            <div class="item cursor-pointer">
               <span class="tag">消息</span>
               <span>新增内容尚未通过审核</span>
             </div>
-            <div class="item">
+            <div class="item cursor-pointer">
               <span class="tag">消息</span>
               <span>新增内容尚未通过审核</span>
             </div>
-            <div class="item">
+            <div class="item cursor-pointer">
               <span class="tag">消息</span>
               <span>新增内容尚未通过审核</span>
             </div>
-            <div class="item">
+            <div class="item cursor-pointer">
               <span class="tag">消息</span>
               <span>新增内容尚未通过审核</span>
             </div>

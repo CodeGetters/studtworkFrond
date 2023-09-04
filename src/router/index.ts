@@ -17,6 +17,27 @@ const routes: Array<RouteRecordRaw> = [
         },
         component: () => import("@/pages/main/DashboardPage.vue"),
       },
+      {
+        path: "/articleList",
+        meta: {
+          pageTitle: "ArticleList",
+        },
+        component: () => import("@/pages/main/ArticleList.vue"),
+      },
+      {
+        path: "/editArticle",
+        meta: {
+          pageTitle: "EditArticle",
+        },
+        component: () => import("@/pages/main/EditArticle.vue"),
+      },
+      {
+        path: "/viewArticle",
+        meta: {
+          pageTitle: "ViewArticle",
+        },
+        component: () => import("@/pages/main/ViewArticle.vue"),
+      },
     ],
   },
   {
@@ -77,7 +98,6 @@ const router: Router = createRouter(option);
 
 router.beforeEach((to) => {
   const configStore = useConfigStore();
-
   start();
   document.title = `${to.meta.pageTitle} - ${import.meta.env.VITE_APP_NAME}`;
   configStore.resetDefaultConfig();
