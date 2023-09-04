@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { Editor } from "@bytemd/vue-next";
+import { Viewer } from "@bytemd/vue-next";
 
 import gfm from "@bytemd/plugin-gfm";
 import highlight from "@bytemd/plugin-highlight";
@@ -9,6 +9,7 @@ import gemoji from "@bytemd/plugin-gemoji";
 
 import "bytemd/dist/index.css";
 import "github-markdown-css/github-markdown.css";
+import "highlight.js/styles/default.css";
 
 const plugins = [gfm(), highlight(), gemoji(), frontmatter()];
 
@@ -19,7 +20,7 @@ const config = {
 </script>
 <template>
   <div id="viewArticle" flex>
-    <Editor
+    <Viewer
       class="w100% h96% bg-#fff p1%"
       :plugins="plugins"
       :value="article"

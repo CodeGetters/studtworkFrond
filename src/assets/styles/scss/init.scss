@@ -7,3 +7,14 @@ body {
 #app {
   min-width: 375px;
 }
+
+.el-table-style {
+  color: #000;
+  background-color: #fff;
+}
+
+.dark .el-table-style {
+  color: #fff !important;
+  background-color: #1f1f1f !important;
+  border-style: #3b434e;
+}

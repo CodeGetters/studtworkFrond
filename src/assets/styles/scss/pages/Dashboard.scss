@@ -7,9 +7,10 @@
       margin-right: 4%;
       display: flex;
       flex-direction: row;
+      justify-content: space-evenly;
       align-items: center;
-      background-color: #f7f9fe;
       cursor: pointer;
+      border-radius: 5px;
       .icon {
         height: 66%;
         width: 32%;
@@ -138,20 +139,22 @@
 
 .dark #dashboardCom {
   .dataOverview {
-    background-color: #fff;
+    background-color: #1f1f1f;
     .item {
-      background-color: #f7f9fe;
+      background-color: #303d5e;
     }
   }
 
   .chartRanking {
     .articleActive {
-      background-color: #fff;
+      color: #fff;
+      background-color: #1f1f1f;
     }
   }
 
   .activeUser {
-    background-color: #fff;
+    color: #fff;
+    background-color: #1f1f1f;
 
     .userList {
       .data {
@@ -165,15 +168,15 @@
 
   .visitChart {
     .userActive {
-      background-color: #fff;
+      background-color: #1f1f1f;
     }
     .mapActive {
-      background-color: #fff;
+      background-color: #1f1f1f;
     }
   }
 
   .notice {
-    background-color: #fff;
+    background-color: #1f1f1f;
 
     a {
       color: #165dff;

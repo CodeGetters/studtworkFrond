@@ -3,7 +3,7 @@ import { ref, watch } from "vue";
 import { useRouter } from "vue-router";
 import HeaderCom from "@/layouts/base/HeaderCom.vue";
 import AsideCom from "@/layouts/base/AsideCom.vue";
-import { asideTopLayout, mainBgc } from "@/core/helpers/config";
+import { asideTopLayout } from "@/core/helpers/config";
 
 const router = useRouter();
 const loading = ref<boolean>(false);
@@ -31,11 +31,7 @@ watch(
       <el-container h92vh>
         <AsideCom />
         <el-container>
-          <el-main
-            element-loading-text="Loading..."
-            v-loading="loading"
-            :style="`background-color: ${mainBgc};`"
-          >
+          <el-main element-loading-text="Loading..." v-loading="loading">
             <router-view class="w100% h100%" />
           </el-main>
         </el-container>
@@ -50,11 +46,7 @@ watch(
           <el-header height="auto">
             <HeaderCom />
           </el-header>
-          <el-main
-            element-loading-text="Loading..."
-            v-loading="loading"
-            :style="`background-color: ${mainBgc};`"
-          >
+          <el-main element-loading-text="Loading..." v-loading="loading">
             <router-view class="w100% h100%" />
           </el-main>
         </el-container>
@@ -63,20 +55,27 @@ watch(
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .el-header {
   padding: 0;
+}
+
+.el-main {
+  background-color: #f7f8fa;
 }
 
 .dark #homePage {
   background-color: black;
   color: #fff;
+
+  .el-main {
+    background-color: #2f3743;
+  }
 }
 
 el-aside[deep],
 el-container[deep],
 el-header[deep] {
-  background-color: black;
   color: #fff;
 }
 </style>

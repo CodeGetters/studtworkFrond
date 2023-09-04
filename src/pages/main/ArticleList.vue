@@ -4,6 +4,8 @@ const deleteRow = (index: number) => {
   tableData.value.splice(index, 1);
 };
 
+import { tableStyle } from "@/core/utils/styleFunc";
+
 const tableData = ref([
   {
     date: "2016-05-03",
@@ -150,7 +152,13 @@ const tableData = ref([
 
 <template>
   <div id="articleList">
-    <el-table :data="tableData" height="850" style="width: 100%">
+    <el-table
+      :data="tableData"
+      height="850"
+      style="width: 100%"
+      :header-cell-class-name="tableStyle"
+      :cell-class-name="tableStyle"
+    >
       <el-table-column prop="date" label="id" width="180" />
       <el-table-column prop="name" label="文章名" width="180" />
       <el-table-column prop="address" label="阅读量" />

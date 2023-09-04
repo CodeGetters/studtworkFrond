@@ -3,7 +3,6 @@
 
   .item {
     background-color: #f2f3f5;
-
     &:hover {
       background-color: #e6eef5;
     }
@@ -15,14 +14,15 @@
 }
 
 .dark #headerCom {
-  border-bottom: 1px solid #7a7979;
+  background-color: #1f1f1f;
+  border-bottom: 1px solid #3b434e;
 
   .item {
-    color: black;
-    background-color: #fff;
+    color: #d0d2d6;
+    background-color: #1f1f1f;
 
     &:hover {
-      background-color: #e6eef5;
+      background-color: #2e3235;
     }
 
     &:last-child {

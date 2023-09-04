@@ -6,6 +6,7 @@ import avatar from "@/assets/images/avatar.png";
 import reader from "@/assets/images/readers.png";
 import china from "@/assets/json/chinaOfMap.json";
 import type { ECOption } from "@/core/utils/chart";
+import { tableStyle } from "@/core/utils/styleFunc";
 import type { GeoJSONSourceInput } from "echarts/types/src/coord/geo/geoTypes";
 
 const tableData = [
@@ -402,8 +403,14 @@ onMounted(() => {
             <h1 text-16px>文章活跃度</h1>
             <router-link to="">查看更多</router-link>
           </div>
-          <div class="articleTable" lg="w100% h79% mt3%">
-            <el-table :data="tableData" height="500" style="width: 100%">
+          <div class="articleTable" lg="w100% h89% mt3%">
+            <el-table
+              :data="tableData"
+              height="500"
+              :header-cell-class-name="tableStyle"
+              :cell-class-name="tableStyle"
+              style="width: 100%"
+            >
               <el-table-column prop="ranking" width="60" label="排名" />
               <el-table-column prop="title" label="标题" />
               <el-table-column prop="readers" label="浏览量" />

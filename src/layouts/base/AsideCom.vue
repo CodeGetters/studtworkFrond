@@ -47,14 +47,15 @@ const setCollapse = (): void => {
         </router-link>
         <el-sub-menu index="4">
           <template #title>
-            <el-icon
-              ><div
+            <el-icon>
+              <div
                 i-streamline:ecology-science-erlenmeyer-flask-experiment-lab-flask-science-chemistry-solution
-            /></el-icon>
+              />
+            </el-icon>
             <span>实验内容</span>
           </template>
           <el-menu-item-group>
-            <el-menu-item index="1-1">item two</el-menu-item>
+            <el-menu-item index="1-1">xxxx</el-menu-item>
           </el-menu-item-group>
         </el-sub-menu>
         <div absolute class="w100% top-96% flex justify-end">
