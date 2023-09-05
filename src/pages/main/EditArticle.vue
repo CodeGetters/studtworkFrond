@@ -2,15 +2,12 @@
 import { ref, onMounted } from "vue";
 import { i18n } from "@/core/i18n/index";
 import { Editor } from "@bytemd/vue-next";
-
-import en from "bytemd/locales/en.json";
-import zh from "bytemd/locales/zh_Hans.json";
-
 import gfm from "@bytemd/plugin-gfm";
 import gemoji from "@bytemd/plugin-gemoji";
 import highlight from "@bytemd/plugin-highlight";
 import frontmatter from "@bytemd/plugin-frontmatter";
-
+import en from "bytemd/locales/en.json";
+import zh from "bytemd/locales/zh_Hans.json";
 import "bytemd/dist/index.css";
 import "github-markdown-css/github-markdown-light.css";
 import "highlight.js/styles/default.css";
@@ -102,7 +99,6 @@ onMounted(() => {
       width: 0 !important;
     }
   }
-
   .articleInfo {
     :deep(.el-input__wrapper, .is-focus) {
       height: 100%;

@@ -57,10 +57,7 @@ export function toggleDark(event: MouseEvent): void {
     );
   });
 
-  // TODO:过渡优化
-  const theme = localStorage.getItem("vueuse-color-scheme");
-
-  if (theme === "dark") {
+  if (isDark.value) {
     setTimeout(() => {
       configStore.setDefaultConfigProperty("aside.backgroundColor", "#fff");
       configStore.setDefaultConfigProperty("aside.textColor", "#000");

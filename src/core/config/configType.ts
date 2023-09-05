@@ -23,6 +23,7 @@ interface MainLayout {
 }
 
 interface defaultConfig {
+  theme: "auto" | "dark";
   mainLayout: MainLayout;
   headers: Header;
   footer: Footer;
