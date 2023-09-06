@@ -1,6 +1,12 @@
 import { computed } from "vue";
 import { useConfigStore } from "@/store/config";
 
+export const themeConfigValue = computed<"auto" | "dark">(() => {
+  return useConfigStore().getDefaultConfig("theme")
+    ? (useConfigStore().getDefaultConfig("theme") as "auto" | "dark")
+    : "auto";
+});
+
 /**
  * Returns layout config
  * @returns {object}

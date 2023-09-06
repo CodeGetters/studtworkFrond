@@ -1,5 +1,6 @@
 import type defaultConfig from "./configType";
 const config: defaultConfig = {
+  theme: "auto",
   mainLayout: {
     asideTop: false,
   },

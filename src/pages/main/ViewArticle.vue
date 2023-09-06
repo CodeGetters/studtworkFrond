@@ -8,7 +8,7 @@ import frontmatter from "@bytemd/plugin-frontmatter";
 import gemoji from "@bytemd/plugin-gemoji";
 
 import "bytemd/dist/index.css";
-import "github-markdown-css/github-markdown.css";
+import "github-markdown-css/github-markdown-light.css";
 import "highlight.js/styles/default.css";
 
 const plugins = [gfm(), highlight(), gemoji(), frontmatter()];
@@ -21,7 +21,7 @@ const config = {
 <template>
   <div id="viewArticle" flex>
     <Viewer
-      class="w100% h96% bg-#fff p1%"
+      class="w100% h96% p1%"
       :plugins="plugins"
       :value="article"
       :editorConfig="config"
@@ -29,4 +29,14 @@ const config = {
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+#viewArticle {
+  color: #000;
+  background-color: #fff;
+}
+
+.dark #viewArticle {
+  color: #fff;
+  background-color: #1f1f1f;
+}
+</style>
