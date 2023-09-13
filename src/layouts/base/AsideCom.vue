@@ -55,7 +55,9 @@ const setCollapse = (): void => {
             <span>实验内容</span>
           </template>
           <el-menu-item-group>
-            <el-menu-item index="1-1">xxxx</el-menu-item>
+            <router-link to="/threeList">
+              <el-menu-item index="1-1">3D Demo</el-menu-item>
+            </router-link>
           </el-menu-item-group>
         </el-sub-menu>
         <div absolute class="w100% top-96% flex justify-end">

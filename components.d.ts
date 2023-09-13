@@ -9,6 +9,7 @@ declare module "vue" {
   export interface GlobalComponents {
     ElAside: (typeof import("element-plus/es"))["ElAside"];
     ElButton: (typeof import("element-plus/es"))["ElButton"];
+    ElCheckTag: (typeof import("element-plus/es"))["ElCheckTag"];
     ElContainer: (typeof import("element-plus/es"))["ElContainer"];
     ElDialog: (typeof import("element-plus/es"))["ElDialog"];
     ElDropdown: (typeof import("element-plus/es"))["ElDropdown"];
@@ -28,6 +29,8 @@ declare module "vue" {
     ElTag: (typeof import("element-plus/es"))["ElTag"];
     RouterLink: (typeof import("vue-router"))["RouterLink"];
     RouterView: (typeof import("vue-router"))["RouterView"];
+    ThreeCom: (typeof import("./src/components/ThreeCom.vue"))["default"];
+    ThreeCom2: (typeof import("./src/components/threeGroup/ThreeCom2.vue"))["default"];
   }
   export interface ComponentCustomProperties {
     vLoading: (typeof import("element-plus/es"))["ElLoadingDirective"];

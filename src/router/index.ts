@@ -38,6 +38,13 @@ const routes: Array<RouteRecordRaw> = [
         },
         component: () => import("@/pages/main/ViewArticle.vue"),
       },
+      {
+        path: "/threeList",
+        meta: {
+          pageTitle: "three demo",
+        },
+        component: () => import("@/pages/main/threeContainer.vue"),
+      },
     ],
   },
   {

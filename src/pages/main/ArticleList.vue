@@ -148,6 +148,10 @@ const tableData = ref([
     address: "No. 189, Grove St, Los Angeles",
   },
 ]);
+
+const tagLog = () => {
+  console.log("111");
+};
 </script>
 
 <template>
@@ -166,23 +170,24 @@ const tableData = ref([
       <el-table-column prop="address" label="最后一次时间" />
       <el-table-column label="操作" width="450">
         <template #default="scope">
-          <el-tag class="mr10px" type="primary">修改文章信息</el-tag>
-          <el-tag class="mr10px" type="primary">修改文章内容</el-tag>
-          <!-- TODO：传递文章参数 -->
-          <router-link to="/viewArticle">
-            <el-tag class="mr10px" type="primary">查看文章内容</el-tag>
+          <el-tag class="mr10px" checked @change="tagLog">修改文章信息</el-tag>
+          <el-tag class="mr10px">修改文章内容</el-tag>
+          <router-link to="/viewArticle" class="mr10px">
+            <el-tag>查看文章内容</el-tag>
           </router-link>
-          <el-tag
-            type="primary"
-            size="small"
-            @click.prevent="deleteRow(scope.$index)"
-          >
-            删除文章
-          </el-tag>
+          <el-tag @click.prevent="deleteRow(scope.$index)">删除文章</el-tag>
         </template>
       </el-table-column>
     </el-table>
   </div>
 </template>
 
-<style></style>
+<style scoped>
+.el-tag {
+  cursor: pointer;
+}
+
+.el-tag:hover {
+  background-color: #d7eaff;
+}
+</style>

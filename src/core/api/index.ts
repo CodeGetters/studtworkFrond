@@ -8,8 +8,14 @@ import type {
 
 import { start, done } from "@/core/utils/nprogress";
 
+// token 信息从本地 localStorage 中获取
+const access_token = "";
+const refresh_token = "";
+
 const service: AxiosInstance = axios.create({
   headers: {
+    Authorization: `Bearer ${access_token}`,
+    "x-refresh-token": refresh_token,
     "Access-Control-Allow-Origin": "*",
   },
 });
