@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { ref, watch, onMounted, onBeforeUnmount } from "vue";
 import { useRouter } from "vue-router";
 import HeaderCom from "@/layouts/base/HeaderCom.vue";
 import AsideCom from "@/layouts/base/AsideCom.vue";
@@ -7,6 +7,33 @@ import { asideTopLayout } from "@/core/helpers/config";
 
 const router = useRouter();
 const loading = ref<boolean>(false);
+
+const wsServer = new WebSocket("ws://localhost:5000");
+
+const submitCode = JSON.stringify({
+  userId: 1,
+  isDebug: "0",
+  lang: "zh",
+  code: "test",
+  info: "info",
+});
+
+onMounted(() => {
+  wsServer.onopen = function () {
+    console.log("ws already connected");
+    wsServer.send(submitCode);
+  };
+});
+
+onBeforeUnmount(() => {
+  wsServer.onclose = function () {
+    wsServer.send("连接关闭...");
+  };
+});
+
+wsServer.onmessage = function (e) {
+  console.log(e.data);
+};
 
 watch(
   () => router.currentRoute.value.path,
